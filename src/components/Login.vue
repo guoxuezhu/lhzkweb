@@ -1,6 +1,36 @@
 <template>
   <div class="loigin_Bg">
-    <h1 class="borde_red">{{ msg }}</h1>
+    <div class="login_Layout">
+      <h3>用户登录</h3>
+      <br/>
+      <b-input-group>
+        <b-input-group-prepend>
+          <img src="../assets/zhanghao.png" class="login_input_img">
+        </b-input-group-prepend>
+
+        <b-form-input type="text" size="lg" v-model.trim="userName" placeholder="请输入用户名"></b-form-input>
+      </b-input-group>
+      <br/>
+      <b-input-group>
+        <b-input-group-prepend>
+          <img src="../assets/mima.png" class="login_input_img">
+        </b-input-group-prepend>
+
+        <b-form-input type="text" size="lg" v-model.trim="passWord" placeholder="请输入密码"></b-form-input>
+      </b-input-group>
+      <br/>
+
+      <b-container class="bv-example-row login_mima_jizhu">
+        <b-row>
+          <b-col><b-form-checkbox v-model="status" value="1" unchecked-value="0">记住密码</b-form-checkbox></b-col>
+          <b-col><a href="javascript:return 0" class="a_login"><small>忘记密码?</small></a></b-col>
+        </b-row>
+      </b-container>
+
+      <b-button @click="login" variant="primary" class="loginbtn">登 录</b-button>
+      <br/>
+      <br/>
+    </div>
   </div>
 </template>
 
@@ -14,7 +44,10 @@ export default {
   },
   data () {
     return {
-      msg: 'Logissssddn'
+      userName: '',
+      passWord: '',
+      status: '0',
+      msg: 'Login'
     }
   },
   methods: {
@@ -38,7 +71,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.borde_red{
+.borde_red {
   border: 1px solid red;
 }
 .loigin_Bg {
@@ -47,5 +80,34 @@ export default {
   height: 100%;
   background: url('../assets/login_bg.png') no-repeat ;
   background-size: cover;
+}
+.login_Layout {
+  height: auto;
+  width: 395px;
+  border-radius: 6px;
+  background-color: #c8f8fa;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  margin: 0 auto;
+  margin-top: 15%;
+}
+.login_input_img {
+  background: #555CE0;
+  width: 48px;
+  height: 48px;
+  padding: 13px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.login_mima_jizhu {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.a_login {
+  float: right;
+}
+.loginbtn {
+  width: 100%;
 }
 </style>
