@@ -1,5 +1,5 @@
 <template>
-  <div class="borde_red">
+  <div class="loigin_Bg">
     <h1 class="borde_red">{{ msg }}</h1>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
   },
   data () {
     return {
-      msg: 'Login'
+      msg: 'Logissssddn'
     }
   },
   methods: {
@@ -40,5 +40,12 @@ export default {
 <style scoped>
 .borde_red{
   border: 1px solid red;
+}
+.loigin_Bg {
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/login_bg.png') no-repeat ;
+  background-size: cover;
 }
 </style>
