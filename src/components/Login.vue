@@ -1,8 +1,7 @@
 <template>
   <div class="loigin_Bg">
     <div class="login_Layout">
-      <h3>用户登录</h3>
-      <br/>
+      <h3 class="login_title">用户登录</h3>
       <b-input-group>
         <b-input-group-prepend>
           <img src="../assets/zhanghao.png" class="login_input_img">
@@ -18,7 +17,6 @@
 
         <b-form-input type="text" size="lg" v-model.trim="passWord" placeholder="请输入密码"></b-form-input>
       </b-input-group>
-      <br/>
 
       <b-container class="bv-example-row login_mima_jizhu">
         <b-row>
@@ -27,8 +25,7 @@
         </b-row>
       </b-container>
 
-      <b-button @click="login" variant="primary" class="loginbtn">登 录</b-button>
-      <br/>
+      <b-button @click="login" size="lg" variant="primary" class="loginbtn">登 录</b-button>
       <br/>
     </div>
   </div>
@@ -51,6 +48,10 @@ export default {
     }
   },
   methods: {
+    login () {
+      this.$router.push({path: '/connect'})
+      console.log('=======登录=============')
+    },
     selectSchool () {
       var param = {}
       var sign = apply.appSign(param) // 添加签名
@@ -86,11 +87,13 @@ export default {
   width: 395px;
   border-radius: 6px;
   background-color: #c8f8fa;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 20px;
-  margin: 0 auto;
-  margin-top: 15%;
+  padding: 20px;
+  margin-left: 55%;
+  margin-top: 19%;
+}
+.login_title {
+  text-align: center;
+  margin-bottom: 19px;
 }
 .login_input_img {
   background: #555CE0;
@@ -103,6 +106,8 @@ export default {
 .login_mima_jizhu {
   padding-left: 0px;
   padding-right: 0px;
+  margin-top: 13px;
+  margin-bottom: 13px;
 }
 .a_login {
   float: right;

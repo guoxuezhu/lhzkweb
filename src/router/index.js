@@ -7,7 +7,7 @@ Vue.use(Router)
 
 const routes = [
   {
-    path: '/lelloWorld',
+    path: '/connect',
     name: 'HelloWorld',
     component: HelloWorld
   }, {
