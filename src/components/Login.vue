@@ -1,33 +1,42 @@
 <template>
   <div class="loigin_Bg">
-    <div class="login_Layout">
-      <h3 class="login_title">用户登录</h3>
-      <b-input-group>
-        <b-input-group-prepend>
-          <img src="../assets/zhanghao.png" class="login_input_img">
-        </b-input-group-prepend>
 
-        <b-form-input type="text" size="lg" v-model.trim="userName" placeholder="请输入用户名"></b-form-input>
-      </b-input-group>
-      <br/>
-      <b-input-group>
-        <b-input-group-prepend>
-          <img src="../assets/mima.png" class="login_input_img">
-        </b-input-group-prepend>
+    <b-container class="bv-example-row">
+      <b-row>
+        <b-col cols="6"></b-col>
+        <b-col cols="4">
+          <div class="login_Layout">
+            <h3 class="login_title">用户登录</h3>
+            <b-input-group>
+              <b-input-group-prepend>
+                <img src="../assets/zhanghao.png" class="login_input_img">
+              </b-input-group-prepend>
 
-        <b-form-input type="text" size="lg" v-model.trim="passWord" placeholder="请输入密码"></b-form-input>
-      </b-input-group>
+              <b-form-input type="text" size="lg" v-model.trim="userName" placeholder="请输入用户名"></b-form-input>
+            </b-input-group>
+            <br/>
+            <b-input-group>
+              <b-input-group-prepend>
+                <img src="../assets/mima.png" class="login_input_img">
+              </b-input-group-prepend>
 
-      <b-container class="bv-example-row login_mima_jizhu">
-        <b-row>
-          <b-col><b-form-checkbox v-model="status" value="1" unchecked-value="0">记住密码</b-form-checkbox></b-col>
-          <b-col><a href="javascript:return 0" class="a_login"><small>忘记密码?</small></a></b-col>
-        </b-row>
-      </b-container>
+              <b-form-input type="text" size="lg" v-model.trim="passWord" placeholder="请输入密码"></b-form-input>
+            </b-input-group>
 
-      <b-button @click="login" size="lg" variant="primary" class="loginbtn">登 录</b-button>
-      <br/>
-    </div>
+            <b-container class="bv-example-row login_mima_jizhu">
+              <b-row>
+                <b-col><b-form-checkbox v-model="status" value="1" unchecked-value="0">记住密码</b-form-checkbox></b-col>
+                <b-col><a href="javascript:return 0" class="a_login"><small>忘记密码?</small></a></b-col>
+              </b-row>
+            </b-container>
+
+            <b-button @click="login" size="lg" variant="primary" class="loginbtn">登 录</b-button>
+            <br/>
+          </div>
+        </b-col>
+        <b-col cols="2"></b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -84,12 +93,11 @@ export default {
 }
 .login_Layout {
   height: auto;
-  width: 395px;
+  width: 100%;
   border-radius: 6px;
   background-color: #c8f8fa;
   padding: 20px;
-  margin-left: 55%;
-  margin-top: 19%;
+  margin-top: 65%;
 }
 .login_title {
   text-align: center;
