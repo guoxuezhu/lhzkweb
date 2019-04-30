@@ -1,91 +1,52 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+  <div>
+    <b-card no-body>
+      <b-tabs pills card vertical>
+        <b-tab title="基本信息" active>
+          <BaseInfo></BaseInfo>
+        </b-tab>
+        <b-tab title="录播设置">
+          <LuboSeting></LuboSeting>
+        </b-tab>
+        <b-tab title="继电器设置">
+          <JdqSeting></JdqSeting>
+        </b-tab>
+        <b-tab title="串口设置">
+          <SportSeting></SportSeting>
+        </b-tab>
+        <b-tab title="报警设置">
+          <DangerSeting></DangerSeting>
+        </b-tab>
+        <b-tab title="温湿度设置">
+          <WsdSeting></WsdSeting>
+        </b-tab>
+        <b-tab title="事件设置">
+          <EventSeting></EventSeting>
+        </b-tab>
+      </b-tabs>
+    </b-card>
   </div>
 </template>
 
 <script>
+import BaseInfo from './seting/BaseInfo.vue'
+import DangerSeting from './seting/DangerSeting.vue'
+import EventSeting from './seting/EventSeting.vue'
+import JdqSeting from './seting/JdqSeting.vue'
+import LuboSeting from './seting/LuboSeting.vue'
+import SportSeting from './seting/SportSeting.vue'
+import WsdSeting from './seting/WsdSeting.vue'
 export default {
   name: 'HelloWorld',
+  components: {
+    BaseInfo,
+    DangerSeting,
+    EventSeting,
+    JdqSeting,
+    LuboSeting,
+    SportSeting,
+    WsdSeting
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -96,18 +57,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>
