@@ -1,11 +1,10 @@
 <template>
   <div class="loigin_Bg">
-
     <b-container class="bv-example-row">
       <b-row>
         <b-col cols="6"></b-col>
         <b-col cols="4">
-          <div class="login_Layout">
+          <div class="login_Layout" @keyup.enter="login($event)">
             <h3 class="login_title">用户登录</h3>
             <b-input-group>
               <b-input-group-prepend>
@@ -20,7 +19,7 @@
                 <img src="../assets/mima.png" class="login_input_img">
               </b-input-group-prepend>
 
-              <b-form-input type="text" size="lg" v-model.trim="passWord" placeholder="请输入密码"></b-form-input>
+              <b-form-input type="password" size="lg" v-model.trim="passWord" placeholder="请输入密码"></b-form-input>
             </b-input-group>
 
             <b-container class="bv-example-row login_mima_jizhu">
@@ -46,7 +45,7 @@ import apply from '../api/apply.js'
 export default {
   name: 'Login',
   created () {
-    this.selectSchool()
+    // this.selectSchool()
   },
   data () {
     return {
@@ -72,7 +71,7 @@ export default {
       }).then(function (response) {
         console.log('=======学校=============' + JSON.stringify(response.data.data))
       }).catch(function (error) {
-        alert('====menuTerm====' + error)
+        alert(error)
       })
     }
   }
