@@ -1,5 +1,6 @@
 <template>
   <div class="loigin_Bg">
+    <div class="h-25 d-inline-block"></div>
     <b-container class="bv-example-row">
       <b-row>
         <b-col cols="6"></b-col>
@@ -96,7 +97,7 @@ export default {
   border-radius: 6px;
   background-color: #c8f8fa;
   padding: 20px;
-  margin-top: 65%;
+  margin-top: 25%;
 }
 .login_title {
   text-align: center;
