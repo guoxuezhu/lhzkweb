@@ -1,12 +1,11 @@
 <template>
   <div>
-    baseinfo
+    JdqSeting
   </div>
 </template>
 
 <script>
 export default {
-  name: 'baseinfo',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

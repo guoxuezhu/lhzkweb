@@ -1,12 +1,11 @@
 <template>
   <div>
-    baseinfossssss
+    DangerSeting
   </div>
 </template>
 
 <script>
 export default {
-  name: 'baseinfo',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

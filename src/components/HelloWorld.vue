@@ -1,30 +1,28 @@
 <template>
   <div>
-    <b-card no-body>
-      <b-tabs pills card vertical>
-        <b-tab title="基本信息" active>
-          <BaseInfo></BaseInfo>
-        </b-tab>
-        <b-tab title="录播设置">
-          <LuboSeting></LuboSeting>
-        </b-tab>
-        <b-tab title="继电器设置">
-          <JdqSeting></JdqSeting>
-        </b-tab>
-        <b-tab title="串口设置">
-          <SportSeting></SportSeting>
-        </b-tab>
-        <b-tab title="报警设置">
-          <DangerSeting></DangerSeting>
-        </b-tab>
-        <b-tab title="温湿度设置">
-          <WsdSeting></WsdSeting>
-        </b-tab>
-        <b-tab title="事件设置">
-          <EventSeting></EventSeting>
-        </b-tab>
-      </b-tabs>
-    </b-card>
+    <b-tabs pills card vertical>
+      <b-tab title="基本信息" active>
+        <BaseInfo></BaseInfo>
+      </b-tab>
+      <b-tab title="录播设置">
+        <LuboSeting></LuboSeting>
+      </b-tab>
+      <b-tab title="继电器设置">
+        <JdqSeting></JdqSeting>
+      </b-tab>
+      <b-tab title="串口设置">
+        <SportSeting></SportSeting>
+      </b-tab>
+      <b-tab title="报警设置">
+        <DangerSeting></DangerSeting>
+      </b-tab>
+      <b-tab title="温湿度设置">
+        <WsdSeting></WsdSeting>
+      </b-tab>
+      <b-tab title="事件设置">
+        <EventSeting></EventSeting>
+      </b-tab>
+    </b-tabs>
   </div>
 </template>
 
@@ -57,5 +55,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>
