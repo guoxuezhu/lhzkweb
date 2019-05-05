@@ -2,15 +2,29 @@
   <div>
     <b-tabs content-class="mt-3">
       <b-tab title="串口１" active>
-        <p>I'm the first tab</p>
+        <Sport></Sport>
       </b-tab>
-      <b-tab title="串口２"><p>I'm the second tab</p></b-tab>
-      <b-tab title="串口３"><p>I'm a dd tab!</p></b-tab>
-      <b-tab title="串口４"><p>I'm a dd tab!</p></b-tab>
-      <b-tab title="串口５"><p>I'm a dd tab!</p></b-tab>
-      <b-tab title="串口６"><p>I'm a dd tab!</p></b-tab>
-      <b-tab title="串口７"><p>I'm a dd tab!</p></b-tab>
-      <b-tab title="串口８"><p>I'm a dd tab!</p></b-tab>
+      <b-tab title="串口２">
+        <Sport></Sport>
+      </b-tab>
+      <b-tab title="串口３">
+        <Sport></Sport>
+      </b-tab>
+      <b-tab title="串口４">
+        <Sport></Sport>
+      </b-tab>
+      <b-tab title="串口５">
+        <Sport></Sport>
+      </b-tab>
+      <b-tab title="串口６">
+        <Sport></Sport>
+      </b-tab>
+      <b-tab title="串口７">
+        <Sport></Sport>
+      </b-tab>
+      <b-tab title="串口８">
+        <Sport></Sport>
+      </b-tab>
     </b-tabs>
   </div>
 </template>
@@ -18,7 +32,11 @@
 <script>
 import axios from 'axios'
 import apply from '../../api/apply.js'
+import Sport from '../smcomponents/Sport.vue'
 export default {
+  components: {
+    Sport
+  },
   created () {
     // this.getSportInfo(1)
   },
