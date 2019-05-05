@@ -33,7 +33,7 @@ export default {
   },
   data () {
     return {
-      ZKIP: '',
+      ZKIP: localStorage.getItem('zhongkongIP'),
       ipStatus: 'null'
     }
   },
@@ -58,9 +58,6 @@ export default {
       }).catch(function (error) {
         alert(error)
       })
-    },
-    selectSchool () {
-      console.log('====================')
     }
   }
 }

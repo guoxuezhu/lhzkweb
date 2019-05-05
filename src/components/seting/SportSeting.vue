@@ -1,29 +1,29 @@
 <template>
   <div>
     <b-tabs content-class="mt-3">
-      <b-tab title="串口１" active>
-        <Sport></Sport>
+      <b-tab title="串口１" active @click="tabSport(1)">
+        <Sport ref="childSport"></Sport>
       </b-tab>
-      <b-tab title="串口２">
-        <Sport></Sport>
+      <b-tab title="串口２" @click="tabSport(2)">
+        <Sport ref="childSport"></Sport>
       </b-tab>
-      <b-tab title="串口３">
-        <Sport></Sport>
+      <b-tab title="串口３" @click="tabSport(3)">
+        <Sport ref="childSport"></Sport>
       </b-tab>
-      <b-tab title="串口４">
-        <Sport></Sport>
+      <b-tab title="串口４" @click="tabSport(4)">
+        <Sport ref="childSport"></Sport>
       </b-tab>
-      <b-tab title="串口５">
-        <Sport></Sport>
+      <b-tab title="串口５" @click="tabSport(5)">
+        <Sport ref="childSport"></Sport>
       </b-tab>
-      <b-tab title="串口６">
-        <Sport></Sport>
+      <b-tab title="串口６" @click="tabSport(6)">
+        <Sport ref="childSport"></Sport>
       </b-tab>
-      <b-tab title="串口７">
-        <Sport></Sport>
+      <b-tab title="串口７" @click="tabSport(7)">
+        <Sport ref="childSport"></Sport>
       </b-tab>
-      <b-tab title="串口８">
-        <Sport></Sport>
+      <b-tab title="串口８" @click="tabSport(8)">
+        <Sport ref="childSport"></Sport>
       </b-tab>
     </b-tabs>
   </div>
@@ -38,7 +38,7 @@ export default {
     Sport
   },
   created () {
-    // this.getSportInfo(1)
+    console.log('=========SportSeting===========')
   },
   data () {
     return {
@@ -46,7 +46,7 @@ export default {
     }
   },
   methods: {
-    getSportInfo (spnumer) {
+    sportInfo (spnumer) {
       var param = {}
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
@@ -60,8 +60,8 @@ export default {
         alert(error)
       })
     },
-    selectSchool () {
-      console.log('====================')
+    tabSport (portNum) {
+      this.$refs.childSport.getSportInfo(portNum)
     }
   }
 }

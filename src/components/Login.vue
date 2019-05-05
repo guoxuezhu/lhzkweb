@@ -50,16 +50,33 @@ export default {
   },
   data () {
     return {
-      userName: '',
-      passWord: '',
-      status: '0',
+      userName: localStorage.getItem('userName'),
+      passWord: localStorage.getItem('passWord'),
+      status: localStorage.getItem('mimastatus'),
       msg: 'Login'
     }
   },
   methods: {
     login () {
-      this.$router.push({path: '/connect'})
+      if (this.userName === '' || this.passWord === '') {
+        alert('请输入用户名、密码')
+        return
+      }
+      if (this.userName !== 'admin' || this.passWord !== 'admin') {
+        alert('用户名或密码错误')
+        return
+      }
       console.log('=======登录=============')
+      if (this.status === '1') {
+        localStorage.setItem('userName', this.userName)
+        localStorage.setItem('passWord', this.passWord)
+        localStorage.setItem('mimastatus', this.status)
+      } else {
+        localStorage.setItem('userName', '')
+        localStorage.setItem('passWord', '')
+        localStorage.setItem('mimastatus', '')
+      }
+      this.$router.push({path: '/connect'})
     },
     selectSchool () {
       var param = {}

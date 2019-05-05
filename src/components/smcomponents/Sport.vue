@@ -42,7 +42,13 @@
 </template>
 
 <script>
+import axios from 'axios'
+import apply from '../../api/apply.js'
 export default {
+  created () {
+    console.log('=========Sport=====created======')
+    // this.getBaseInfo()
+  },
   data () {
     return {
       jinzhiSelected: 0,
@@ -97,6 +103,27 @@ export default {
       ],
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  methods: {
+    getSportInfo (spnumer) {
+      var param = {}
+      var sign = apply.appSign(param) // 添加签名
+      param.sign = sign
+      axios({
+        method: 'post',
+        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8089/api/baseInfo',
+        params: param
+      }).then(function (response) {
+        console.log('=======连接=============' + JSON.stringify(response))
+      }).catch(function (error) {
+        alert(error)
+      })
+    },
+    clicktest (eventmsg) {
+      console.log('=========clicktest=====Sport======' + eventmsg)
+    }
+  },
+  computed: {
   }
 }
 </script>

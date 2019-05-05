@@ -9,6 +9,7 @@ import axios from 'axios'
 import apply from '../../api/apply.js'
 export default {
   created () {
+    console.log('=========BaseInfo===========')
     // this.getBaseInfo()
   },
   data () {

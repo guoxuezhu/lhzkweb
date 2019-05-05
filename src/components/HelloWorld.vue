@@ -28,8 +28,8 @@
       <b-tab title="继电器设置">
         <JdqSeting></JdqSeting>
       </b-tab>
-      <b-tab title="串口设置">
-        <SportSeting></SportSeting>
+      <b-tab title="串口设置" @click="tabSportSeting">
+        <SportSeting ref="childSportSeting"></SportSeting>
       </b-tab>
       <b-tab title="报警设置">
         <DangerSeting></DangerSeting>
@@ -53,7 +53,6 @@ import LuboSeting from './seting/LuboSeting.vue'
 import SportSeting from './seting/SportSeting.vue'
 import WsdSeting from './seting/WsdSeting.vue'
 export default {
-  name: 'HelloWorld',
   components: {
     BaseInfo,
     DangerSeting,
@@ -63,9 +62,17 @@ export default {
     SportSeting,
     WsdSeting
   },
+  created () {
+    console.log('=========HelloWorld===========')
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    tabSportSeting () {
+      this.$refs.childSportSeting.sportInfo(1)
     }
   }
 }
