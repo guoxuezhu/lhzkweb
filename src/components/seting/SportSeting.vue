@@ -1,7 +1,7 @@
 <template>
   <div>
-    <b-tabs content-class="mt-3">
-      <b-tab title="串口１" active @click="tabSport(1)">
+    <b-tabs content-class="mt-3" v-model="tabIndex">
+      <b-tab title="串口１" @click="tabSport(1)">
         <Sport ref="childSport"></Sport>
       </b-tab>
       <b-tab title="串口２" @click="tabSport(2)">
@@ -42,11 +42,12 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      tabIndex: 0
     }
   },
   methods: {
     sportInfo (spnumer) {
+      this.tabIndex = 0
       var param = {}
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
