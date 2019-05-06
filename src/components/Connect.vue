@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     connect () {
+      var _this = this
       if (this.ZKIP === '') {
         this.ipStatus = false
         return
@@ -49,12 +50,12 @@ export default {
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
-        method: 'post',
-        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8089/api/ipconnect',
+        method: 'get',
+        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/ipconnect',
         params: param
       }).then(function (response) {
         console.log('=======连接=============' + JSON.stringify(response))
-        this.$router.push({path: '/helloWorld'})
+        _this.$router.push({path: '/helloWorld'})
       }).catch(function (error) {
         alert(error)
       })

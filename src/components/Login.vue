@@ -46,7 +46,7 @@ import apply from '../api/apply.js'
 export default {
   name: 'Login',
   created () {
-    // this.selectSchool()
+    this.selectSchool()
   },
   data () {
     return {
@@ -84,10 +84,10 @@ export default {
       param.sign = sign
       axios({
         method: 'get',
-        url: 'api/school/menu',
+        url: 'https://smart.rovemaker.com/api/school/menu',
         params: param
       }).then(function (response) {
-        console.log('=======学校=============' + JSON.stringify(response.data.data))
+        console.log('=======学校=============' + JSON.stringify(response))
       }).catch(function (error) {
         alert(error)
       })

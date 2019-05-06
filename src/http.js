@@ -11,7 +11,7 @@ axios.defaults.timeout = 60000
 // 192.168.10.105
 // https://smart.rovemaker.com/
 
-// axios.defaults.baseURL = 'http://192.168.5.19:8099/'
+// axios.defaults.baseURL = 'https://smart.rovemaker.com/'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 // http request 拦截器
