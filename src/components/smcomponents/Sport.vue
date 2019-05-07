@@ -153,6 +153,11 @@ export default {
         params: param
       }).then(function (response) {
         console.log('=======提交======提交=======' + JSON.stringify(response.data))
+        if (response.data.success) {
+          alert('修改成功')
+        } else {
+          alert('修改失败')
+        }
       }).catch(function (error) {
         alert(error)
       })

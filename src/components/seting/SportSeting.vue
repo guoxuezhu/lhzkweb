@@ -44,7 +44,7 @@ export default {
     }
   },
   methods: {
-    sportInfo (spnumer) {
+    sportInfo () {
       this.tabIndex = 0
       this.tabSportOne()
     },

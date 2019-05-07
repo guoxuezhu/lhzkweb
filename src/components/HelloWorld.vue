@@ -31,14 +31,14 @@
       <b-tab title="串口设置" @click="tabSportSeting">
         <SportSeting ref="childSportSeting"></SportSeting>
       </b-tab>
-      <b-tab title="报警设置">
-        <DangerSeting></DangerSeting>
+      <b-tab title="报警设置" @click="tabDangerSeting">
+        <DangerSeting ref="childDangerSeting"></DangerSeting>
       </b-tab>
       <b-tab title="温湿度设置">
         <WsdSeting></WsdSeting>
       </b-tab>
-      <b-tab title="事件设置">
-        <EventSeting></EventSeting>
+      <b-tab title="事件设置" @click="tabEventSeting">
+        <EventSeting ref="childEventSeting"></EventSeting>
       </b-tab>
     </b-tabs>
   </div>
@@ -72,7 +72,13 @@ export default {
   },
   methods: {
     tabSportSeting () {
-      this.$refs.childSportSeting.sportInfo(1)
+      this.$refs.childSportSeting.sportInfo()
+    },
+    tabEventSeting () {
+      this.$refs.childEventSeting.eventInfo()
+    },
+    tabDangerSeting () {
+      this.$refs.childDangerSeting.getDangerInfo()
     }
   }
 }
