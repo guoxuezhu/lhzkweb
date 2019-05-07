@@ -39,7 +39,7 @@
           </b-form-group>
         </b-col>
         <b-col lg="4">
-          <b-button class="btn_tijiao" variant="outline-success">提 交</b-button>
+          <b-button class="btn_tijiao" variant="outline-success" @click="commitbtn()">提 交</b-button>
         </b-col>
       </b-row>
     </b-container>
@@ -105,6 +105,7 @@ export default {
   methods: {
     getSportInfo (spnumer) {
       var _this = this
+      _this.ckNum = spnumer
       var param = {
         sportNum: spnumer
       }
@@ -115,7 +116,7 @@ export default {
         url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/sportInfo',
         params: param
       }).then(function (response) {
-        console.log('=======串口=============' + JSON.stringify(response.data.data.serialPortData))
+        console.log('=======串口=============' + JSON.stringify(response.data.data))
         _this.baudrateSelected = response.data.data.serialPortData.baudRateId
         _this.checkoutBitSelected = response.data.data.serialPortData.checkoutBitId
         _this.dataBitSelected = response.data.data.serialPortData.dataBitId
@@ -127,8 +128,34 @@ export default {
         alert(error)
       })
     },
-    clicktest (eventmsg) {
-      console.log('=========clicktest=====Sport======' + eventmsg)
+    commitbtn () {
+      var _this = this
+      console.log('=========提交===========' + _this.ckNum)
+      var param = {
+        sportNum: _this.ckNum,
+        baudRateId: _this.baudrateSelected,
+        baudRate: _this.baudrateOptions[_this.baudrateSelected].text,
+        checkoutBitId: _this.checkoutBitSelected,
+        checkoutBit: _this.checkoutBitOptions[_this.checkoutBitSelected].text,
+        dataBitId: _this.dataBitSelected,
+        dataBit: _this.dataBitOptions[_this.dataBitSelected].text,
+        stopBitId: _this.stopBitSelected,
+        stopBit: _this.stopBitOptions[_this.stopBitSelected].text,
+        deviceName: _this.bindName,
+        jinZhi: _this.jinzhiSelected,
+        sportMls: _this.commandList
+      }
+      var sign = apply.appSign(param) // 添加签名
+      param.sign = sign
+      axios({
+        method: 'post',
+        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/updataSportInfo',
+        params: param
+      }).then(function (response) {
+        console.log('=======提交======提交=======' + JSON.stringify(response.data))
+      }).catch(function (error) {
+        alert(error)
+      })
     }
   },
   computed: {
