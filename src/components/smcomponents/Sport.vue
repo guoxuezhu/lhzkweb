@@ -25,6 +25,24 @@
       </b-row>
     </b-container>
     <br>
+    <b-container>
+      <b-row>
+        <b-col lg="4">
+          <b-input-group >
+            <b-input-group-prepend is-text><b style="width: 118px;">绑定的设备</b></b-input-group-prepend>
+            <b-form-input type="text" v-model.trim="bindName" placeholder="请输入绑定名称"></b-form-input>
+          </b-input-group>
+        </b-col>
+        <b-col lg="4">
+          <b-form-group>
+            <b-form-radio-group v-model="jinzhiSelected" :options="jinzhiOptions" buttons button-variant="outline-info"></b-form-radio-group>
+          </b-form-group>
+        </b-col>
+        <b-col lg="4">
+          <b-button class="btn_tijiao" variant="outline-success">提 交</b-button>
+        </b-col>
+      </b-row>
+    </b-container>
     <div v-for="command in commandList" :key="command.commandId">
       <b-input-group >
         <b-input-group-prepend is-text><b style="width: 118px;">{{command.commandId}}</b></b-input-group-prepend>
@@ -33,10 +51,6 @@
       </b-input-group>
       <br>
     </div>
-    <b-form-group>
-      <b-form-radio-group v-model="jinzhiSelected" :options="jinzhiOptions" name="radio-inline"></b-form-radio-group>
-    </b-form-group>
-    <b-button variant="outline-success">提交</b-button>
     <br><br>
   </div>
 </template>
@@ -45,16 +59,12 @@
 import axios from 'axios'
 import apply from '../../api/apply.js'
 export default {
-  created () {
-    console.log('=========Sport=====created======')
-    // this.getBaseInfo()
-  },
   data () {
     return {
-      jinzhiSelected: 0,
+      jinzhiSelected: 16,
       jinzhiOptions: [
-        { value: 0, text: '十六进制' },
-        { value: 1, text: '十进制' }
+        { value: 16, text: '十六进制' },
+        { value: 10, text: '十进制' }
       ],
       baudrateSelected: 3,
       baudrateOptions: [
@@ -88,33 +98,31 @@ export default {
         { value: 1, text: '1.5' },
         { value: 2, text: '2' }
       ],
-      commandList: [
-        { commandId: '1-101', commandName: '投影机开', commandStr: 'sdfegadgtssfa' },
-        { commandId: '1-102', commandName: '投影机关', commandStr: 'sdfegaa122adgtssfa' },
-        { commandId: '1-103', commandName: '', commandStr: '' },
-        { commandId: '1-104', commandName: '', commandStr: '' },
-        { commandId: '1-105', commandName: '', commandStr: '' },
-        { commandId: '1-106', commandName: '', commandStr: '' },
-        { commandId: '1-107', commandName: '', commandStr: '' },
-        { commandId: '1-108', commandName: '', commandStr: '' },
-        { commandId: '1-109', commandName: '', commandStr: '' },
-        { commandId: '1-110', commandName: '', commandStr: '' },
-        { commandId: '1-111', commandName: '', commandStr: '' }
-      ],
-      msg: 'Welcome to Your Vue.js App'
+      commandList: [],
+      bindName: ''
     }
   },
   methods: {
     getSportInfo (spnumer) {
-      var param = {}
+      var _this = this
+      var param = {
+        sportNum: spnumer
+      }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
-        method: 'post',
-        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8089/api/baseInfo',
+        method: 'get',
+        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/sportInfo',
         params: param
       }).then(function (response) {
-        console.log('=======连接=============' + JSON.stringify(response))
+        console.log('=======串口=============' + JSON.stringify(response.data.data.serialPortData))
+        _this.baudrateSelected = response.data.data.serialPortData.baudRateId
+        _this.checkoutBitSelected = response.data.data.serialPortData.checkoutBitId
+        _this.dataBitSelected = response.data.data.serialPortData.dataBitId
+        _this.stopBitSelected = response.data.data.serialPortData.stopBitId
+        _this.bindName = response.data.data.serialPortData.deviceName
+        _this.jinzhiSelected = response.data.data.serialPortData.jinZhi
+        _this.commandList = response.data.data.serialCommandList
       }).catch(function (error) {
         alert(error)
       })
@@ -130,5 +138,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.btn_tijiao {
+  float: right;
+}
 </style>

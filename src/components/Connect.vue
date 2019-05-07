@@ -54,7 +54,7 @@ export default {
         url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/ipconnect',
         params: param
       }).then(function (response) {
-        console.log('=======连接=============' + JSON.stringify(response))
+        console.log('=======连接=============' + JSON.stringify(response.data))
         _this.$router.push({path: '/helloWorld'})
       }).catch(function (error) {
         alert(error)
