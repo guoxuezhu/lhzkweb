@@ -22,11 +22,11 @@
       <b-tab title="基本信息" active>
         <BaseInfo></BaseInfo>
       </b-tab>
-      <b-tab title="录播设置">
-        <LuboSeting></LuboSeting>
+      <b-tab title="录播设置" @click="tabLuboSeting">
+        <LuboSeting ref="childLuboSeting"></LuboSeting>
       </b-tab>
-      <b-tab title="继电器设置">
-        <JdqSeting></JdqSeting>
+      <b-tab title="继电器设置" @click="tabJdqSeting">
+        <JdqSeting ref="childJdqSeting"></JdqSeting>
       </b-tab>
       <b-tab title="串口设置" @click="tabSportSeting">
         <SportSeting ref="childSportSeting"></SportSeting>
@@ -76,6 +76,12 @@ export default {
     },
     tabEventSeting () {
       this.$refs.childEventSeting.eventInfo()
+    },
+    tabJdqSeting () {
+      this.$refs.childJdqSeting.jdqInfo()
+    },
+    tabLuboSeting () {
+      this.$refs.childLuboSeting.luboInfo()
     },
     tabDangerSeting () {
       this.$refs.childDangerSeting.getDangerInfo()

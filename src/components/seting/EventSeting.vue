@@ -1,6 +1,6 @@
 <template>
   <div>
-  	<b-button class="btn_tijiao" variant="outline-success" @click="EventInfoCommit()">提 交</b-button>
+    <b-button class="btn_tijiao" variant="outline-success" @click="EventInfoCommit()">提 交</b-button>
     <br><br>
     <div v-for="event in eventList" :key="event.id">
       <b-input-group >
