@@ -10,19 +10,19 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
-            <template slot="button-content"><em>User</em></template>
-            <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+            <template slot="button-content"><em>{{zkip}}</em></template>
+            <b-dropdown-item href="#/connect">断开</b-dropdown-item>
+            <b-dropdown-item href="#/login">退出</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
 
     <b-tabs pills card vertical>
-      <b-tab title="基本信息" active>
+      <!-- <b-tab title="基本信息" active>
         <BaseInfo></BaseInfo>
-      </b-tab>
-      <b-tab title="录播设置" @click="tabLuboSeting">
+      </b-tab> -->
+      <b-tab title="录播设置" active @click="tabLuboSeting">
         <LuboSeting ref="childLuboSeting"></LuboSeting>
       </b-tab>
       <b-tab title="串口设置" @click="tabSportSeting">
@@ -40,9 +40,9 @@
       <b-tab title="IO输出设置" @click="tabIOoutSeting">
         <IOoutSeting ref="childIOoutSeting"></IOoutSeting>
       </b-tab>
-      <b-tab title="温湿度设置">
+      <!-- <b-tab title="温湿度设置">
         <WsdSeting></WsdSeting>
-      </b-tab>
+      </b-tab> -->
       <b-tab title="事件设置" @click="tabEventSeting">
         <EventSeting ref="childEventSeting"></EventSeting>
       </b-tab>
@@ -82,6 +82,7 @@ export default {
   },
   data () {
     return {
+      zkip: localStorage.getItem('zhongkongIP'),
       msg: 'Welcome to Your Vue.js App'
     }
   },

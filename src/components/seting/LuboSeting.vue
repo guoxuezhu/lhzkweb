@@ -34,6 +34,9 @@
 import axios from 'axios'
 import apply from '../../api/apply.js'
 export default {
+  created () {
+    this.luboInfo()
+  },
   data () {
     return {
       luboList: [],
