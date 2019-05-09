@@ -40,6 +40,9 @@
       <b-tab title="事件设置" @click="tabEventSeting">
         <EventSeting ref="childEventSeting"></EventSeting>
       </b-tab>
+      <b-tab title="远程服务设置" @click="tabMqttSeting">
+        <MqttSeting ref="childMqttSeting"></MqttSeting>
+      </b-tab>
     </b-tabs>
   </div>
 </template>
@@ -52,6 +55,7 @@ import JdqSeting from './seting/JdqSeting.vue'
 import LuboSeting from './seting/LuboSeting.vue'
 import SportSeting from './seting/SportSeting.vue'
 import WsdSeting from './seting/WsdSeting.vue'
+import MqttSeting from './seting/MqttSeting.vue'
 export default {
   components: {
     BaseInfo,
@@ -60,7 +64,8 @@ export default {
     JdqSeting,
     LuboSeting,
     SportSeting,
-    WsdSeting
+    WsdSeting,
+    MqttSeting
   },
   created () {
     console.log('=========HelloWorld===========')
@@ -82,6 +87,9 @@ export default {
     },
     tabLuboSeting () {
       this.$refs.childLuboSeting.luboInfo()
+    },
+    tabMqttSeting () {
+      this.$refs.childMqttSeting.mqttInfo()
     },
     tabDangerSeting () {
       this.$refs.childDangerSeting.getDangerInfo()

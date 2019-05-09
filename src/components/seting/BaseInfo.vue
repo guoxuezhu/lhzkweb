@@ -23,8 +23,8 @@ export default {
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
-        method: 'post',
-        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8089/api/baseInfo',
+        method: 'get',
+        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/baseInfo',
         params: param
       }).then(function (response) {
         console.log('=======连接=============' + JSON.stringify(response))
