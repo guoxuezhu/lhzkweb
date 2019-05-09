@@ -25,14 +25,20 @@
       <b-tab title="录播设置" @click="tabLuboSeting">
         <LuboSeting ref="childLuboSeting"></LuboSeting>
       </b-tab>
-      <b-tab title="继电器设置" @click="tabJdqSeting">
-        <JdqSeting ref="childJdqSeting"></JdqSeting>
-      </b-tab>
       <b-tab title="串口设置" @click="tabSportSeting">
         <SportSeting ref="childSportSeting"></SportSeting>
       </b-tab>
       <b-tab title="报警设置" @click="tabDangerSeting">
         <DangerSeting ref="childDangerSeting"></DangerSeting>
+      </b-tab>
+      <b-tab title="继电器设置" @click="tabJdqSeting">
+        <JdqSeting ref="childJdqSeting"></JdqSeting>
+      </b-tab>
+      <b-tab title="报警输出设置" @click="tabDangeroutSeting">
+        <DangeroutSeting ref="childDangeroutSeting"></DangeroutSeting>
+      </b-tab>
+      <b-tab title="IO输出设置" @click="tabIOoutSeting">
+        <IOoutSeting ref="childIOoutSeting"></IOoutSeting>
       </b-tab>
       <b-tab title="温湿度设置">
         <WsdSeting></WsdSeting>
@@ -56,6 +62,8 @@ import LuboSeting from './seting/LuboSeting.vue'
 import SportSeting from './seting/SportSeting.vue'
 import WsdSeting from './seting/WsdSeting.vue'
 import MqttSeting from './seting/MqttSeting.vue'
+import IOoutSeting from './seting/IOoutSeting.vue'
+import DangeroutSeting from './seting/DangeroutSeting.vue'
 export default {
   components: {
     BaseInfo,
@@ -65,7 +73,9 @@ export default {
     LuboSeting,
     SportSeting,
     WsdSeting,
-    MqttSeting
+    MqttSeting,
+    IOoutSeting,
+    DangeroutSeting
   },
   created () {
     console.log('=========HelloWorld===========')
@@ -90,6 +100,12 @@ export default {
     },
     tabMqttSeting () {
       this.$refs.childMqttSeting.mqttInfo()
+    },
+    tabIOoutSeting () {
+      this.$refs.childIOoutSeting.iooutInfo()
+    },
+    tabDangeroutSeting () {
+      this.$refs.childDangeroutSeting.dangeroutInfo()
     },
     tabDangerSeting () {
       this.$refs.childDangerSeting.getDangerInfo()
