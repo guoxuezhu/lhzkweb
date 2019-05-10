@@ -1,10 +1,8 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="success">
+    <b-navbar toggleable="lg" type="dark" variant="success" class="titleAppbar titleheight">
       <b-navbar-brand href="#">力弘智慧教育</b-navbar-brand>
-
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
@@ -17,7 +15,7 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-
+    <div class="titleheight"></div>
     <b-tabs pills card vertical>
       <!-- <b-tab title="基本信息" active>
         <BaseInfo></BaseInfo>
@@ -117,5 +115,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.titleAppbar {
+  width: 100%;
+  position: fixed;
+  z-index: 1024;
+}
+.titleheight {
+  height: 56px;
+}
 </style>
