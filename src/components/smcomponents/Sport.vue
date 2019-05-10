@@ -43,7 +43,7 @@
         </b-col>
       </b-row>
     </b-container>
-    <div v-for="command in commandList" :key="command.commandId">
+    <div v-for="command in commands" :key="command.commandId">
       <b-input-group >
         <b-input-group-prepend is-text><b style="width: 118px;">{{command.commandId}}</b></b-input-group-prepend>
         <b-form-input type="text" v-model.trim="command.commandName" placeholder="请输入命令名称"></b-form-input>
@@ -51,6 +51,7 @@
       </b-input-group>
       <br>
     </div>
+    <b-pagination v-model="currentPage" :total-rows="count" :per-page="perPage" align="center" @change="pageEvent()"></b-pagination>
     <br><br>
   </div>
 </template>
@@ -99,10 +100,30 @@ export default {
         { value: 2, text: '2' }
       ],
       commandList: [],
+      commands: [],
+      perPage: 10,
+      currentPage: 1,
+      count: 1,
       bindName: ''
     }
   },
   methods: {
+    pageEvent () {
+      this.$nextTick(function () {
+        console.log('=======串口=====11========' + this.currentPage)
+        if (this.currentPage === 1) {
+          this.commands = this.commandList.slice(0, 10)
+        } else if (this.currentPage === 2) {
+          this.commands = this.commandList.slice(10, 20)
+        } else if (this.currentPage === 3) {
+          this.commands = this.commandList.slice(20, 30)
+        } else if (this.currentPage === 4) {
+          this.commands = this.commandList.slice(30, 40)
+        } else if (this.currentPage === 5) {
+          this.commands = this.commandList.slice(40, 50)
+        }
+      })
+    },
     getSportInfo (spnumer) {
       var _this = this
       _this.ckNum = spnumer
@@ -124,6 +145,9 @@ export default {
         _this.bindName = response.data.data.serialPortData.deviceName
         _this.jinzhiSelected = response.data.data.serialPortData.jinZhi
         _this.commandList = response.data.data.serialCommandList
+        _this.count = _this.commandList.length
+        _this.commands = _this.commandList.slice(0, 10)
+        _this.currentPage = 1
       }).catch(function (error) {
         alert(error)
       })
@@ -131,6 +155,7 @@ export default {
     commitbtn () {
       var _this = this
       console.log('=========提交===========' + _this.ckNum)
+      console.log('=========提交=====222======' + JSON.stringify(_this.commandList))
       var param = {
         sportNum: _this.ckNum,
         baudRateId: _this.baudrateSelected,

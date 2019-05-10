@@ -2,7 +2,7 @@
   <div>
     <b-button class="btn_tijiao" variant="outline-success" @click="EventInfoCommit()">提 交</b-button>
     <br><br>
-    <div v-for="event in eventList" :key="event.id">
+    <div v-for="event in events" :key="event.id">
       <b-input-group >
         <b-input-group-prepend is-text><b style="width: 118px;">{{event.id}}</b></b-input-group-prepend>
         <b-input-group-prepend is-text><b style="width: 138px;">{{event.name}}</b></b-input-group-prepend>
@@ -10,6 +10,7 @@
       </b-input-group>
       <br>
     </div>
+    <b-pagination v-model="currentPage" :total-rows="count" :per-page="perPage" align="center" @change="pageEvent()"></b-pagination>
   </div>
 </template>
 
@@ -20,10 +21,34 @@ export default {
   data () {
     return {
       eventList: [],
+      events: [],
+      perPage: 10,
+      currentPage: 1,
+      count: 1,
       msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
+    pageEvent () {
+      this.$nextTick(function () {
+        console.log('=======串口=====11========' + this.currentPage)
+        if (this.currentPage === 1) {
+          this.events = this.eventList.slice(0, 10)
+        } else if (this.currentPage === 2) {
+          this.events = this.eventList.slice(10, 20)
+        } else if (this.currentPage === 3) {
+          this.events = this.eventList.slice(20, 30)
+        } else if (this.currentPage === 4) {
+          this.events = this.eventList.slice(30, 40)
+        } else if (this.currentPage === 5) {
+          this.events = this.eventList.slice(40, 50)
+        } else if (this.currentPage === 6) {
+          this.events = this.eventList.slice(50, 60)
+        } else if (this.currentPage === 7) {
+          this.events = this.eventList.slice(60, 70)
+        }
+      })
+    },
     eventInfo () {
       var _this = this
       var param = {}
@@ -36,6 +61,9 @@ export default {
       }).then(function (response) {
         console.log('=======事件=============' + JSON.stringify(response.data))
         _this.eventList = response.data.data
+        _this.count = _this.eventList.length
+        _this.events = _this.eventList.slice(0, 10)
+        _this.currentPage = 1
       }).catch(function (error) {
         alert(error)
       })
