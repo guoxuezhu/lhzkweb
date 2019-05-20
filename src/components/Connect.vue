@@ -5,7 +5,7 @@
       <b-row>
         <b-col cols="6"></b-col>
         <b-col cols="4">
-          <div class="connect_Layout">
+          <div class="connect_Layout" @keyup.enter="connect($event)">
             <h3 class="connect_title">中控连接</h3>
             <b-input-group>
               <b-input-group-prepend>

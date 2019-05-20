@@ -46,7 +46,6 @@ import apply from '../api/apply.js'
 export default {
   name: 'Login',
   created () {
-    this.selectSchool()
   },
   data () {
     return {
@@ -77,20 +76,6 @@ export default {
         localStorage.setItem('mimastatus', '')
       }
       this.$router.push({path: '/connect'})
-    },
-    selectSchool () {
-      var param = {}
-      var sign = apply.appSign(param) // 添加签名
-      param.sign = sign
-      axios({
-        method: 'get',
-        url: 'https://smart.rovemaker.com/api/school/menu',
-        params: param
-      }).then(function (response) {
-        console.log('=======学校=============' + JSON.stringify(response))
-      }).catch(function (error) {
-        alert(error)
-      })
     }
   }
 }
