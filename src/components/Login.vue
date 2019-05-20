@@ -41,8 +41,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-import apply from '../api/apply.js'
 export default {
   name: 'Login',
   created () {
