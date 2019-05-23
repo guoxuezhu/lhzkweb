@@ -154,8 +154,9 @@ export default {
     },
     commitbtn () {
       var _this = this
-      console.log('=========提交===========' + _this.ckNum)
-      console.log('=========提交=====222======' + JSON.stringify(_this.commandList))
+      for (var i = 0; i < _this.commandList.length; i++) {
+        _this.commandList[i].commandStr = _this.commandList[i].commandStr.replace(' ', '%22')
+      }
       var param = {
         sportNum: _this.ckNum,
         baudRateId: _this.baudrateSelected,
@@ -179,6 +180,7 @@ export default {
       }).then(function (response) {
         console.log('=======提交======提交=======' + JSON.stringify(response.data))
         if (response.data.success) {
+          _this.getSportInfo(_this.ckNum)
           alert('修改成功')
         } else {
           alert('修改失败')
