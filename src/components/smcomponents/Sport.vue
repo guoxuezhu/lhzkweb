@@ -59,6 +59,7 @@
 <script>
 import axios from 'axios'
 import apply from '../../api/apply.js'
+import Qs from 'qs'
 export default {
   data () {
     return {
@@ -154,9 +155,6 @@ export default {
     },
     commitbtn () {
       var _this = this
-      for (var i = 0; i < _this.commandList.length; i++) {
-        _this.commandList[i].commandStr = _this.commandList[i].commandStr.replace(' ', '%22')
-      }
       var param = {
         sportNum: _this.ckNum,
         baudRateId: _this.baudrateSelected,
@@ -169,18 +167,21 @@ export default {
         stopBit: _this.stopBitOptions[_this.stopBitSelected].text,
         deviceName: _this.bindName,
         jinZhi: _this.jinzhiSelected,
-        sportMls: _this.commandList
+        sportMls: JSON.stringify(_this.commandList)
       }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
         method: 'post',
         url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/updataSportInfo',
-        params: param
+        data: param,
+        transformRequest: [function (data, headers) {
+          console.log('===headers=====：' + JSON.stringify(headers))
+          return Qs.stringify(data)
+        }]
       }).then(function (response) {
         console.log('=======提交======提交=======' + JSON.stringify(response.data))
         if (response.data.success) {
-          _this.getSportInfo(_this.ckNum)
           alert('修改成功')
         } else {
           alert('修改失败')
