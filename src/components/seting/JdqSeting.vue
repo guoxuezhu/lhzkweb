@@ -30,8 +30,8 @@ export default {
   data () {
     return {
       jdqStatusOptions: [
-        { value: 0, text: '开' },
-        { value: 1, text: '关' }
+        { value: 1, text: '开' },
+        { value: 0, text: '关' }
       ],
       jdqList: [],
       msg: 'Welcome to Your Vue.js App'
