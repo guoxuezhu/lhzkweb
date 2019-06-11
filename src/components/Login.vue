@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import Bmob from 'hydrogen-js-sdk'
 export default {
   name: 'Login',
   created () {
@@ -59,11 +60,6 @@ export default {
         alert('请输入用户名、密码')
         return
       }
-      if (this.userName !== 'admin' || this.passWord !== 'admin') {
-        alert('用户名或密码错误')
-        return
-      }
-      console.log('=======登录=============')
       if (this.status === '1') {
         localStorage.setItem('userName', this.userName)
         localStorage.setItem('passWord', this.passWord)
@@ -73,7 +69,15 @@ export default {
         localStorage.setItem('passWord', '')
         localStorage.setItem('mimastatus', '')
       }
-      this.$router.push({path: '/connect'})
+      var _this = this
+      Bmob.User.login(this.userName, this.passWord).then(res => {
+        console.log('=======登录======11=======' + JSON.stringify(res))
+        _this.$router.push({path: '/connect'})
+      }).catch(err => {
+        console.log('=======登录======err=======' + JSON.stringify(err))
+        alert('用户名或密码错误')
+      })
+      // this.$router.push({path: '/connect'})
     }
   }
 }

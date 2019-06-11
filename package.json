@@ -17,6 +17,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.19",
+    "hydrogen-js-sdk": "^1.7.0",
     "js-md5": "^0.7.3",
     "vue": "^2.6.10",
     "vue-router": "^3.0.1",

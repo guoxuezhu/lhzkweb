@@ -8,9 +8,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import axios from './http'
 import store from './store/'
+import Bmob from 'hydrogen-js-sdk'
 
+Bmob.initialize('726c39426f2021d5288d57be47627cf2', 'c1c3ae47868bd8f53852e2bb0247ed22')
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
+Vue.prototype.Bmob = Bmob
 
 /* eslint-disable no-new */
 new Vue({
