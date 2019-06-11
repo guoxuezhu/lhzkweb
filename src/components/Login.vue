@@ -72,6 +72,7 @@ export default {
       var _this = this
       Bmob.User.login(this.userName, this.passWord).then(res => {
         console.log('=======登录======11=======' + JSON.stringify(res))
+        localStorage.setItem('usertable', 'ip_test')
         _this.$router.push({path: '/connect'})
       }).catch(err => {
         console.log('=======登录======err=======' + JSON.stringify(err))

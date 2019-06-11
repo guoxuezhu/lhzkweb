@@ -8,7 +8,7 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
-            <template slot="button-content"><em>{{zkip}}</em></template>
+            <template slot="button-content"><em>{{username}}</em></template>
             <b-dropdown-item href="#/connect">断开</b-dropdown-item>
             <b-dropdown-item href="#/login">退出</b-dropdown-item>
           </b-nav-item-dropdown>
@@ -80,7 +80,7 @@ export default {
   },
   data () {
     return {
-      zkip: localStorage.getItem('zhongkongIP'),
+      username: localStorage.getItem('userName') + '(' + localStorage.getItem('zhongkongIP') + ')',
       msg: 'Welcome to Your Vue.js App'
     }
   },
