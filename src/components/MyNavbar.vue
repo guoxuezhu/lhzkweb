@@ -9,6 +9,7 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template slot="button-content"><em>{{username}}</em></template>
+            <b-dropdown-item v-show="ifShow"　@click="backbtn" >首页</b-dropdown-item>
             <b-dropdown-item @click="loginOut" >退出</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
@@ -30,6 +31,15 @@ export default {
       zkIP: ''
     }
   },
+  computed: {
+    ifShow () {
+      if (this.$route.path === '/connect') {
+        return false
+      } else {
+        return true
+      }
+    }
+  },
   methods: {
     loginInfo () {
       console.log('=======navbar======' + localStorage.getItem('zhongkongIP'))
@@ -43,6 +53,10 @@ export default {
       localStorage.setItem('zhongkongIP', '')
       Bmob.User.logout()
       this.$router.push({path: '/login'})
+    },
+    backbtn () {
+      localStorage.setItem('zhongkongIP', '')
+      this.$router.push({path: '/connect'})
     }
   }
 }
