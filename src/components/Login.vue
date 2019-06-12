@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     login () {
-      if (this.userName === '' || this.passWord === '') {
+      if (this.userName === '' || this.passWord === '' || this.userName === null || this.passWord === null) {
         alert('请输入用户名、密码')
         return
       }
