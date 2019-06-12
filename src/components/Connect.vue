@@ -2,21 +2,17 @@
   <div>
     <MyNavbar></MyNavbar>
     <br><br><br><br>
-    <b-row>
-      <b-col cols="1"></b-col>
-      <b-col cols="10">
-        <b-button class="btn_tijiao" variant="outline-success" @click="addShowModal" >添 加</b-button>
-        <br><br>
-        <b-table striped hover :fields="fields" :items="items">
-          <template slot="isActive" slot-scope="item">
-            <b-btn variant="outline-success" size="sm" @click="etzhongkong(item.item)" >修改</b-btn>
-            <b-btn variant="outline-danger" size="sm" @click="delectOk(item.item)" >删除</b-btn>
-            <b-btn variant="outline-success" size="sm" @click="connect(item.item)" >管理</b-btn>
-          </template>
-        </b-table>
-      </b-col>
-      <b-col cols="1"></b-col>
-    </b-row>
+    <div style="margin:0 5% 0 5%">
+      <b-button class="btn_tijiao" variant="outline-success" @click="addShowModal" >添 加</b-button>
+      <br><br>
+      <b-table striped hover :fields="fields" :items="items">
+        <template slot="isActive" slot-scope="item">
+          <b-btn variant="outline-success" size="sm" @click="etzhongkong(item.item)" >修改</b-btn>
+          <b-btn variant="outline-danger" size="sm" @click="delectOk(item.item)" >删除</b-btn>
+          <b-btn variant="outline-success" size="sm" @click="connect(item.item)" >管理</b-btn>
+        </template>
+      </b-table>
+    </div>
     <b-modal id="zkadd-modal" title="中控信息" cancel-title="关闭" ok-title="确定" @ok="addIPCommit">
       <b-row>
         <b-col sm="4">
@@ -153,14 +149,6 @@ export default {
 <style scoped>
 .borde_red {
   border: 1px solid red;
-}
-.titleAppbar {
-  width: 100%;
-  position: fixed;
-  z-index: 1024;
-}
-.titleheight {
-  height: 56px;
 }
 .btn_tijiao {
   float: right;
