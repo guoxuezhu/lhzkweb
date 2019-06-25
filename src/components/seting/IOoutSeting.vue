@@ -5,13 +5,18 @@
     <div v-for="ioOut in ioOutList" :key="ioOut.id">
       <div class="danger_bg">
         <b-row>
-          <b-col lg="3">
+          <b-col lg="2">
             <b>{{ioOut.name}}</b>
           </b-col>
-          <b-col lg="5">
+          <b-col lg="4">
+            <b-input-group prepend="绑定的设备">
+              <b-form-input type="text" v-model.trim="ioOut.deviceName" placeholder="请输入绑定的设备"></b-form-input>
+            </b-input-group>
+          </b-col>
+          <b-col lg="3">
             初始状态：<b-form-radio-group v-model="ioOut.ioOutStatus" :options="ioStatusOptions" buttons button-variant="outline-success"></b-form-radio-group>
           </b-col>
-          <b-col lg="4">
+          <b-col lg="3">
             <b-input-group prepend="工作时长(秒)">
               <b-form-input type="number" min="1" v-model.trim="ioOut.time" placeholder="请输入工作时长"></b-form-input>
             </b-input-group>

@@ -5,8 +5,13 @@
     <div v-for="danger in dangerList" :key="danger.id">
       <div class="danger_bg">
         <b-row>
-          <b-col lg="6">
+          <b-col lg="2">
             <b>报警{{danger.id}}口</b>
+          </b-col>
+          <b-col lg="4">
+            <b-input-group prepend="绑定的设备">
+              <b-form-input type="text" v-model.trim="danger.deviceName" placeholder="请输入绑定的设备"></b-form-input>
+            </b-input-group>
           </b-col>
           <b-col lg="6">
             报警状态：<b-form-radio-group v-model="danger.dangerIoStatus" :options="dangerStatusOptions" buttons button-variant="outline-danger"></b-form-radio-group>
