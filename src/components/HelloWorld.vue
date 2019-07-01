@@ -47,6 +47,9 @@
       <b-tab title="远程服务设置" @click="tabMqttSeting">
         <MqttSeting ref="childMqttSeting"></MqttSeting>
       </b-tab>
+      <b-tab title="控制面板">
+        <ZKban></ZKban>
+      </b-tab>
     </b-tabs>
   </div>
 </template>
@@ -62,6 +65,7 @@ import WsdSeting from './seting/WsdSeting.vue'
 import MqttSeting from './seting/MqttSeting.vue'
 import IOoutSeting from './seting/IOoutSeting.vue'
 import DangeroutSeting from './seting/DangeroutSeting.vue'
+import ZKban from './seting/ZKban.vue'
 export default {
   components: {
     BaseInfo,
@@ -73,6 +77,7 @@ export default {
     WsdSeting,
     MqttSeting,
     IOoutSeting,
+    ZKban,
     DangeroutSeting
   },
   created () {
