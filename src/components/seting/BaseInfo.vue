@@ -1,6 +1,7 @@
 <template>
   <div>
     <br><br>
+    <h6 class="btn_lubo_tijiao h_color">中控名称 设置必须保证与别的学校不同，并且容易记住，作为远程控制连接</h6>
     <b-row>
       <b-col lg="4">
       </b-col>
@@ -27,7 +28,7 @@
         <br>
         <b-input-group>
           <b-input-group-prepend is-text><b style="width: 118px;">显示屏个数</b></b-input-group-prepend>
-          <b-form-input type="text" v-model.trim="baseinfoList.hudongVIDnum" placeholder="请输入显示屏个数"></b-form-input>
+          <b-form-input type="number" min="0" v-model.trim="baseinfoList.hudongVIDnum" placeholder="请输入显示屏个数"></b-form-input>
         </b-input-group>
         <br>
         <b-input-group>
@@ -89,6 +90,10 @@ export default {
     },
     baseInfoCommit () {
       var _this = this
+      if (_this.baseinfoList.zkname === '') {
+        alert('请输入中控名称')
+        return
+      }
       var param = {
         zkbaseInfoData: _this.baseinfoList
       }
@@ -117,5 +122,8 @@ export default {
 <style scoped>
 .btn_lubo_tijiao {
   text-align: center;
+}
+.h_color {
+  color: red;
 }
 </style>
