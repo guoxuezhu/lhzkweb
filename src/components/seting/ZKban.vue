@@ -1,7 +1,7 @@
 <template>
   <div>
     <br><br>
-    <b-button variant="outline-success" @click="btnSendMsg('SKJAA')">刷卡启动</b-button>
+    <b-button variant="outline-success" @click="btnSendMsg('SKJAA')">启动操作面板</b-button>
   </div>
 </template>
 

@@ -17,10 +17,10 @@
     </b-navbar>
     <div class="titleheight"></div>
     <b-tabs pills card vertical>
-      <!-- <b-tab title="基本信息" active>
-        <BaseInfo></BaseInfo>
-      </b-tab> -->
-      <b-tab title="录播设置" active @click="tabLuboSeting">
+      <b-tab title="基本信息" active @click="tabBaseinfoSeting">
+        <BaseInfo ref="childBaseinfoSeting"></BaseInfo>
+      </b-tab>
+      <b-tab title="录播设置" @click="tabLuboSeting">
         <LuboSeting ref="childLuboSeting"></LuboSeting>
       </b-tab>
       <b-tab title="串口设置" @click="tabSportSeting">
@@ -44,9 +44,9 @@
       <b-tab title="事件设置" @click="tabEventSeting">
         <EventSeting ref="childEventSeting"></EventSeting>
       </b-tab>
-      <b-tab title="远程服务设置" @click="tabMqttSeting">
+      <!-- <b-tab title="远程服务设置" @click="tabMqttSeting">
         <MqttSeting ref="childMqttSeting"></MqttSeting>
-      </b-tab>
+      </b-tab> -->
       <b-tab title="控制面板">
         <ZKban></ZKban>
       </b-tab>
@@ -90,6 +90,9 @@ export default {
     }
   },
   methods: {
+    tabBaseinfoSeting () {
+      this.$refs.childBaseinfoSeting.getBaseInfo()
+    },
     tabSportSeting () {
       this.$refs.childSportSeting.sportInfo()
     },
