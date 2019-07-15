@@ -3,9 +3,9 @@
     <br><br>
     <h6 class="btn_lubo_tijiao h_color">中控名称 设置必须保证与别的学校不同，并且容易记住，作为远程控制连接</h6>
     <b-row>
-      <b-col lg="4">
+      <b-col lg="3">
       </b-col>
-      <b-col lg="4" class="btn_lubo_tijiao">
+      <b-col lg="6" class="btn_lubo_tijiao">
         <b-input-group>
           <b-input-group-prepend is-text><b style="width: 118px;">中控名称</b></b-input-group-prepend>
           <b-form-input type="text" v-model.trim="baseinfoList.zkname" placeholder="请输入中控名称"></b-form-input>
@@ -38,7 +38,7 @@
         <br>
         <b-button variant="outline-success" @click="baseInfoCommit()">提 交</b-button>
       </b-col>
-      <b-col lg="4">
+      <b-col lg="3">
       </b-col>
     </b-row>
   </div>

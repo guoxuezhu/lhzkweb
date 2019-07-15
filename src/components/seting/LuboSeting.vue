@@ -3,9 +3,9 @@
     <br><br>
     <div v-for="lubo in luboList" :key="lubo.id">
       <b-row>
-        <b-col lg="4">
+        <b-col lg="3">
         </b-col>
-        <b-col lg="4" class="btn_lubo_tijiao">
+        <b-col lg="6" class="btn_lubo_tijiao">
           <b-input-group>
             <b-input-group-prepend is-text><b style="width: 118px;">录播IP地址</b></b-input-group-prepend>
             <b-form-input type="text" v-model.trim="lubo.IP" placeholder="请输入工作时长"></b-form-input>
@@ -23,7 +23,7 @@
           <br>
           <b-button variant="outline-success" @click="luboInfoCommit()">提 交</b-button>
         </b-col>
-        <b-col lg="4">
+        <b-col lg="3">
         </b-col>
       </b-row>
     </div>
