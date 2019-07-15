@@ -53,9 +53,9 @@ export default {
       }).then(function (response) {
         console.log('=======提交======提交=======' + JSON.stringify(response.data))
         if (response.data.success) {
-          alert('修改成功')
+          alert('成功')
         } else {
-          alert('修改失败')
+          alert('失败')
         }
       }).catch(function (error) {
         alert(error)
