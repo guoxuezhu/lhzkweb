@@ -6,12 +6,12 @@
         <b-col cols="6"></b-col>
         <b-col cols="4">
           <div class="connect_Layout" @keyup.enter="connect($event)">
-            <h3 class="connect_title">中控连接</h3>
+            <h3 class="connect_title">设备连接</h3>
             <b-input-group>
               <b-input-group-prepend>
                 <img src="../assets/zhanghao.png" class="connect_input_img">
               </b-input-group-prepend>
-              <b-form-input type="text" size="lg" v-model.trim="ZKIP" :state="ipStatus" placeholder="请输入中控IP地址"></b-form-input>
+              <b-form-input type="text" size="lg" v-model.trim="ZKIP" :state="ipStatus" placeholder="请输入设备IP地址"></b-form-input>
             </b-input-group>
             <br/>
             <b-button @click="connect" size="lg" variant="primary" class="connectbtn">连 接</b-button>

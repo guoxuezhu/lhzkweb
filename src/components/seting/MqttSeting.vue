@@ -6,8 +6,8 @@
       </b-col>
       <b-col lg="4" class="btn_lubo_tijiao">
         <b-input-group>
-          <b-input-group-prepend is-text><b style="width: 118px;">中控位置</b></b-input-group-prepend>
-          <b-form-input type="text" v-model.trim="mqttdata.classRoom" placeholder="请输入中控位置"></b-form-input>
+          <b-input-group-prepend is-text><b style="width: 118px;">设备位置</b></b-input-group-prepend>
+          <b-form-input type="text" v-model.trim="mqttdata.classRoom" placeholder="请输入设备位置"></b-form-input>
         </b-input-group>
         <br>
         <b-input-group>
