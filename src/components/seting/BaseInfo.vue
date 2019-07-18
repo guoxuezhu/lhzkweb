@@ -49,8 +49,17 @@ import axios from 'axios'
 import apply from '../../api/apply.js'
 export default {
   created () {
-    console.log('=========BaseInfo============')
-    this.getBaseInfo()
+    console.log('=========BaseInfo=====created=======')
+    if (localStorage.getItem('isLogin') === '0' || localStorage.getItem('isLogin') === null) {
+      console.log('=========BaseInfo====000========' + localStorage.getItem('isLogin'))
+      this.$router.push({path: '/login'})
+    } else if (localStorage.getItem('isConnect') === '0' || localStorage.getItem('isConnect') === null) {
+      console.log('=========BaseInfo====111========' + localStorage.getItem('isConnect'))
+      this.$router.push({path: '/connect'})
+    } else {
+      console.log('=========BaseInfo====222========')
+      this.getBaseInfo()
+    }
   },
   data () {
     return {

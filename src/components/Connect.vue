@@ -30,6 +30,11 @@ import apply from '../api/apply.js'
 export default {
   name: 'Connect',
   created () {
+    console.log('=========Connect============' + localStorage.getItem('isConnect'))
+    if (localStorage.getItem('isLogin') === '0' || localStorage.getItem('isLogin') === null) {
+      console.log('=========Connect====000========' + localStorage.getItem('isLogin'))
+      this.$router.push({path: '/login'})
+    }
   },
   data () {
     return {
@@ -45,17 +50,20 @@ export default {
         return
       }
       this.ipStatus = true
-      localStorage.setItem('zhongkongIP', this.ZKIP)
       var param = {}
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
         method: 'get',
-        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/ipconnect',
+        url: 'http://' + _this.ZKIP + ':8099/api/ipconnect',
         params: param
       }).then(function (response) {
         console.log('=======连接=============' + JSON.stringify(response.data))
-        _this.$router.push({path: '/helloWorld'})
+        if (response.data === 200) {
+          localStorage.setItem('zhongkongIP', _this.ZKIP)
+          localStorage.setItem('isConnect', '1')
+          _this.$router.push({path: '/helloWorld'})
+        }
       }).catch(function (error) {
         alert(error)
       })

@@ -73,6 +73,7 @@ export default {
         localStorage.setItem('passWord', '')
         localStorage.setItem('mimastatus', '')
       }
+      localStorage.setItem('isLogin', '1')
       this.$router.push({path: '/connect'})
     }
   }
