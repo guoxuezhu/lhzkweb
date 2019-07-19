@@ -9,7 +9,7 @@
             <h3 class="connect_title">设备连接</h3>
             <b-input-group>
               <b-input-group-prepend>
-                <img src="../assets/zhanghao.png" class="connect_input_img">
+                <img src="../assets/connect.png" class="connect_input_img">
               </b-input-group-prepend>
               <b-form-input type="text" size="lg" v-model.trim="ZKIP" :state="ipStatus" placeholder="请输入设备IP地址"></b-form-input>
             </b-input-group>
@@ -30,9 +30,8 @@ import apply from '../api/apply.js'
 export default {
   name: 'Connect',
   created () {
-    console.log('=========Connect============' + localStorage.getItem('isConnect'))
+    console.log('=========Connect=====created=======')
     if (localStorage.getItem('isLogin') === '0' || localStorage.getItem('isLogin') === null) {
-      console.log('=========Connect====000========' + localStorage.getItem('isLogin'))
       this.$router.push({path: '/login'})
     }
   },

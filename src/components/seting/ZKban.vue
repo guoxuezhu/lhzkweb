@@ -1,7 +1,9 @@
 <template>
   <div>
     <br><br>
-    <b-button variant="outline-success" @click="btnSendMsg('SKJAA')">启动操作面板</b-button>
+    <b-button @click="btnSendMsg('SKJAA')" v-b-popover.hover.right="'没有卡的时候可以控制操作面板进入控制界面'"
+      variant="outline-success">启动操作面板</b-button>
+    <br>
   </div>
 </template>
 
