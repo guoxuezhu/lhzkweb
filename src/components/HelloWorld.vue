@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vue-canvas-nest :config="{color:'0, 0, 255', opacity: 0.7, zIndex: -1, count: 150}" ></vue-canvas-nest>
     <b-navbar toggleable="lg" type="dark" variant="success" class="titleAppbar titleheight">
       <b-navbar-brand href="#">力弘智慧教育</b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -66,6 +67,7 @@ import MqttSeting from './seting/MqttSeting.vue'
 import IOoutSeting from './seting/IOoutSeting.vue'
 import DangeroutSeting from './seting/DangeroutSeting.vue'
 import ZKban from './seting/ZKban.vue'
+import vueCanvasNest from 'vue-canvas-nest'
 export default {
   components: {
     BaseInfo,
@@ -78,7 +80,8 @@ export default {
     MqttSeting,
     IOoutSeting,
     ZKban,
-    DangeroutSeting
+    DangeroutSeting,
+    vueCanvasNest
   },
   created () {
     console.log('=========HelloWorld===========')
