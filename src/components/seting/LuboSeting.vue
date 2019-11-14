@@ -8,17 +8,17 @@
         <b-col lg="6" class="btn_lubo_tijiao">
           <b-input-group>
             <b-input-group-prepend is-text><b style="width: 118px;">录播IP地址</b></b-input-group-prepend>
-            <b-form-input type="text" v-model.trim="lubo.IP" placeholder="请输入工作时长"></b-form-input>
+            <b-form-input type="text" v-model.trim="lubo.IP" placeholder="请输入录播IP地址"></b-form-input>
           </b-input-group>
           <br>
           <b-input-group>
             <b-input-group-prepend is-text><b style="width: 118px;">录播用户名称</b></b-input-group-prepend>
-            <b-form-input type="text" v-model.trim="lubo.userName" placeholder="请输入工作时长"></b-form-input>
+            <b-form-input type="text" v-model.trim="lubo.userName" placeholder="请输入录播用户名称"></b-form-input>
           </b-input-group>
           <br>
           <b-input-group>
             <b-input-group-prepend is-text><b style="width: 118px;">录播用户密码</b></b-input-group-prepend>
-            <b-form-input type="text" v-model.trim="lubo.Password" placeholder="请输入工作时长"></b-form-input>
+            <b-form-input type="text" v-model.trim="lubo.Password" placeholder="请输入录播用户密码"></b-form-input>
           </b-input-group>
           <br>
           <b-button variant="outline-success" @click="luboInfoCommit()">提 交</b-button>
