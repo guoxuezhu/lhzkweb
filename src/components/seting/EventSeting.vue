@@ -17,6 +17,7 @@
 <script>
 import axios from 'axios'
 import apply from '../../api/apply.js'
+import Qs from 'qs'
 export default {
   data () {
     return {
@@ -71,14 +72,18 @@ export default {
     EventInfoCommit () {
       var _this = this
       var param = {
-        eventDatas: _this.eventList
+        eventDatas: JSON.stringify(_this.eventList)
       }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
         method: 'post',
         url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/updataEventInfo',
-        params: param
+        data: param,
+        transformRequest: [function (data, headers) {
+          console.log('===headers=====：' + JSON.stringify(headers))
+          return Qs.stringify(data)
+        }]
       }).then(function (response) {
         console.log('=======提交======提交=======' + JSON.stringify(response.data))
         if (response.data.success) {

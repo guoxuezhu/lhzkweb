@@ -1,24 +1,24 @@
 <template>
   <div>
     <br><br>
-    <div v-for="lubo in luboList" :key="lubo.id">
+    <div>
       <b-row>
         <b-col lg="3">
         </b-col>
         <b-col lg="6" class="btn_lubo_tijiao">
           <b-input-group>
             <b-input-group-prepend is-text><b style="width: 118px;">录播IP地址</b></b-input-group-prepend>
-            <b-form-input type="text" v-model.trim="lubo.IP" placeholder="请输入录播IP地址"></b-form-input>
+            <b-form-input type="text" v-model.trim="lubo.record_ip" placeholder="请输入录播IP地址"></b-form-input>
           </b-input-group>
           <br>
           <b-input-group>
             <b-input-group-prepend is-text><b style="width: 118px;">录播用户名称</b></b-input-group-prepend>
-            <b-form-input type="text" v-model.trim="lubo.userName" placeholder="请输入录播用户名称"></b-form-input>
+            <b-form-input type="text" v-model.trim="lubo.record_user" placeholder="请输入录播用户名称"></b-form-input>
           </b-input-group>
           <br>
           <b-input-group>
             <b-input-group-prepend is-text><b style="width: 118px;">录播用户密码</b></b-input-group-prepend>
-            <b-form-input type="text" v-model.trim="lubo.Password" placeholder="请输入录播用户密码"></b-form-input>
+            <b-form-input type="text" v-model.trim="lubo.record_pass" placeholder="请输入录播用户密码"></b-form-input>
           </b-input-group>
           <br>
           <b-button variant="outline-success" @click="luboInfoCommit()">提 交</b-button>
@@ -33,13 +33,18 @@
 <script>
 import axios from 'axios'
 import apply from '../../api/apply.js'
+import Qs from 'qs'
 export default {
   created () {
     // this.luboInfo()
   },
   data () {
     return {
-      luboList: [],
+      lubo: {
+        record_ip: '',
+        record_user: '',
+        record_pass: ''
+      },
       msg: 'Welcome to Your Vue.js App'
     }
   },
@@ -55,7 +60,7 @@ export default {
         params: param
       }).then(function (response) {
         console.log('=======录播=============' + JSON.stringify(response.data))
-        _this.luboList = response.data.data
+        _this.lubo = response.data.data[0]
       }).catch(function (error) {
         alert(error)
       })
@@ -63,14 +68,18 @@ export default {
     luboInfoCommit () {
       var _this = this
       var param = {
-        luboDatas: _this.luboList
+        luboDatas: JSON.stringify(_this.lubo)
       }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
         method: 'post',
         url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/updataLuboInfo',
-        params: param
+        data: param,
+        transformRequest: [function (data, headers) {
+          console.log('===headers=====：' + JSON.stringify(headers))
+          return Qs.stringify(data)
+        }]
       }).then(function (response) {
         console.log('=======提交======提交=======' + JSON.stringify(response.data))
         if (response.data.success) {

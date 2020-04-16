@@ -31,6 +31,7 @@
 <script>
 import axios from 'axios'
 import apply from '../../api/apply.js'
+import Qs from 'qs'
 export default {
   data () {
     return {
@@ -62,14 +63,18 @@ export default {
     jdqInfoCommit () {
       var _this = this
       var param = {
-        jdqDatas: _this.jdqList
+        jdqDatas: JSON.stringify(_this.jdqList)
       }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
         method: 'post',
         url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/updataJdqInfo',
-        params: param
+        data: param,
+        transformRequest: [function (data, headers) {
+          console.log('===headers=====：' + JSON.stringify(headers))
+          return Qs.stringify(data)
+        }]
       }).then(function (response) {
         console.log('=======提交======提交=======' + JSON.stringify(response.data))
         if (response.data.success) {

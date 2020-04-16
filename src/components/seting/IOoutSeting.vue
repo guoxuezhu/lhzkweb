@@ -31,6 +31,7 @@
 <script>
 import axios from 'axios'
 import apply from '../../api/apply.js'
+import Qs from 'qs'
 export default {
   created () {
     console.log('=========BaseInfo===========')
@@ -66,14 +67,18 @@ export default {
     ioOutInfoCommit () {
       var _this = this
       var param = {
-        ioOutDatas: _this.ioOutList
+        ioOutDatas: JSON.stringify(_this.ioOutList)
       }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
         method: 'post',
         url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/updataIoOutInfo',
-        params: param
+        data: param,
+        transformRequest: [function (data, headers) {
+          console.log('===headers=====：' + JSON.stringify(headers))
+          return Qs.stringify(data)
+        }]
       }).then(function (response) {
         console.log('=======提交======提交=======' + JSON.stringify(response.data))
         if (response.data.success) {
