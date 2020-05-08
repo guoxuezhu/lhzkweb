@@ -29,7 +29,7 @@
     <br>
     <div class="borde_1">
       <b-button @click="btnSendMsg('MBS1')" variant="outline-success" class="vid_btn">上课</b-button>
-      <b-button @click="btnSendMsg('MBS1')" variant="outline-success" class="vid_btn">下课</b-button>
+      <b-button @click="btnSendMsg('MBS2')" variant="outline-success" class="vid_btn">下课</b-button>
       <br><br>
       <b-button @click="btnSendMsg('MBS13')" variant="outline-success" class="vid_btn">灯光开</b-button>
       <b-button @click="btnSendMsg('MBS3')" variant="outline-success" class="vid_btn">窗帘开</b-button>
