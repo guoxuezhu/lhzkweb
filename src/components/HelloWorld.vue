@@ -39,6 +39,12 @@
       <b-tab title="IO输出设置" @click="tabIOoutSeting">
         <IOoutSeting ref="childIOoutSeting"></IOoutSeting>
       </b-tab>
+      <b-tab title="门禁设置" @click="tabDoorSeting">
+        <DoorSeting ref="childDoorSeting"></DoorSeting>
+      </b-tab>
+      <b-tab title="系统重启设置" @click="tabRebootSeting">
+        <RebootSeting ref="childRebootSeting"></RebootSeting>
+      </b-tab>
       <!-- <b-tab title="温湿度设置">
         <WsdSeting></WsdSeting>
       </b-tab> -->
@@ -67,6 +73,8 @@ import MqttSeting from './seting/MqttSeting.vue'
 import IOoutSeting from './seting/IOoutSeting.vue'
 import DangeroutSeting from './seting/DangeroutSeting.vue'
 import ZKban from './seting/ZKban.vue'
+import DoorSeting from './seting/DoorSeting.vue'
+import RebootSeting from './seting/RebootSeting.vue'
 import vueCanvasNest from 'vue-canvas-nest'
 export default {
   components: {
@@ -79,6 +87,8 @@ export default {
     WsdSeting,
     MqttSeting,
     IOoutSeting,
+    DoorSeting,
+    RebootSeting,
     ZKban,
     DangeroutSeting,
     vueCanvasNest
@@ -126,6 +136,12 @@ export default {
     },
     tabIOoutSeting () {
       this.$refs.childIOoutSeting.iooutInfo()
+    },
+    tabDoorSeting () {
+      this.$refs.childDoorSeting.doorInfo()
+    },
+    tabRebootSeting () {
+      this.$refs.childRebootSeting.rebootInfo()
     },
     tabDangeroutSeting () {
       this.$refs.childDangeroutSeting.dangeroutInfo()
