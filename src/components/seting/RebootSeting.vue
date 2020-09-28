@@ -1,7 +1,7 @@
 <template>
   <div>
     <br><br>
-    <h6 class="btn_lubo_tijiao h_color">每天定时系统重启，防止长时间使用造成超负荷运行</h6>
+    <!-- <h6 class="btn_lubo_tijiao h_color">每天定时系统重启，防止长时间使用造成超负荷运行</h6> -->
     <b-row>
       <b-col lg="3">
       </b-col>
