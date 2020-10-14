@@ -21,6 +21,11 @@
             <b-form-input type="text" v-model.trim="lubo.record_pass" placeholder="请输入录播用户密码"></b-form-input>
           </b-input-group>
           <br>
+          <b-input-group>
+            <b-input-group-prepend is-text><b style="width: 118px;">是否启用</b></b-input-group-prepend>
+            <b-form-select v-model="lubo.status" :options="luboStatusOptions"></b-form-select>
+          </b-input-group>
+          <br>
           <b-button variant="outline-success" @click="luboInfoCommit()">提 交</b-button>
         </b-col>
         <b-col lg="3">
@@ -43,8 +48,13 @@ export default {
       lubo: {
         record_ip: '',
         record_user: '',
-        record_pass: ''
+        record_pass: '',
+        status: 0
       },
+      luboStatusOptions: [
+        { value: 1, text: '启用' },
+        { value: 0, text: '禁用' }
+      ],
       msg: 'Welcome to Your Vue.js App'
     }
   },
