@@ -155,6 +155,9 @@ export default {
     },
     commitbtn () {
       var _this = this
+      for (var i = 0; i < _this.commandList.length; i++) {
+        _this.commandList[i].jinZhi = _this.jinzhiSelected
+      }
       var param = {
         sportNum: _this.ckNum,
         baudRateId: _this.baudrateSelected,
