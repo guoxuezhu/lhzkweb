@@ -48,6 +48,12 @@ export default {
           this.events = this.eventList.slice(50, 60)
         } else if (this.currentPage === 7) {
           this.events = this.eventList.slice(60, 70)
+        } else if (this.currentPage === 8) {
+          this.events = this.eventList.slice(70, 80)
+        } else if (this.currentPage === 9) {
+          this.events = this.eventList.slice(80, 90)
+        } else if (this.currentPage === 10) {
+          this.events = this.eventList.slice(90, 100)
         }
       })
     },
