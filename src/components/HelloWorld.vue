@@ -42,6 +42,9 @@
       <b-tab title="门禁设置" @click="tabDoorSeting">
         <DoorSeting ref="childDoorSeting"></DoorSeting>
       </b-tab>
+      <b-tab title="网关控制器设置" @click="tabWgkzqSeting">
+        <WgkzqSeting ref="childWgkzqSeting"></WgkzqSeting>
+      </b-tab>
       <b-tab title="系统重启设置" @click="tabRebootSeting">
         <RebootSeting ref="childRebootSeting"></RebootSeting>
       </b-tab>
@@ -74,6 +77,7 @@ import IOoutSeting from './seting/IOoutSeting.vue'
 import DangeroutSeting from './seting/DangeroutSeting.vue'
 import ZKban from './seting/ZKban.vue'
 import DoorSeting from './seting/DoorSeting.vue'
+import WgkzqSeting from './seting/WgkzqSeting.vue'
 import RebootSeting from './seting/RebootSeting.vue'
 import vueCanvasNest from 'vue-canvas-nest'
 export default {
@@ -88,6 +92,7 @@ export default {
     MqttSeting,
     IOoutSeting,
     DoorSeting,
+    WgkzqSeting,
     RebootSeting,
     ZKban,
     DangeroutSeting,
@@ -139,6 +144,9 @@ export default {
     },
     tabDoorSeting () {
       this.$refs.childDoorSeting.doorInfo()
+    },
+    tabWgkzqSeting () {
+      this.$refs.childWgkzqSeting.wgkzqInfo()
     },
     tabRebootSeting () {
       this.$refs.childRebootSeting.rebootInfo()
