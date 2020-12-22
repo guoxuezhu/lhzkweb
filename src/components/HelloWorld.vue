@@ -2,7 +2,7 @@
   <div>
     <vue-canvas-nest :config="{color:'0, 0, 255', opacity: 0.7, zIndex: -1, count: 150}" ></vue-canvas-nest>
     <b-navbar toggleable="lg" type="dark" variant="success" class="titleAppbar titleheight">
-      <b-navbar-brand href="#">力弘智慧教育</b-navbar-brand>
+      <b-navbar-brand href="#">智慧教育</b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
