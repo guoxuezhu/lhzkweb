@@ -32,7 +32,12 @@
         </b-input-group>
         <br>
         <b-input-group>
-          <b-input-group-prepend is-text><b style="width: 118px;">远程控制</b></b-input-group-prepend>
+          <b-input-group-prepend is-text><b style="width: 118px;">服务器地址</b></b-input-group-prepend>
+          <b-form-input type="text" v-model.trim="baseinfoList.ser_ip" placeholder="请输入服务器地址"></b-form-input>
+        </b-input-group>
+        <br>
+        <b-input-group>
+          <b-input-group-prepend is-text><b style="width: 118px;">外网控制</b></b-input-group-prepend>
           <b-form-select v-model="baseinfoList.show" :options="mqttStatusOptions"></b-form-select>
         </b-input-group>
         <br>
@@ -51,13 +56,7 @@ import Qs from 'qs'
 export default {
   created () {
     console.log('=========BaseInfo=====created=======')
-    if (localStorage.getItem('isLogin') === '0' || localStorage.getItem('isLogin') === null) {
-      this.$router.push({path: '/login'})
-    } else if (localStorage.getItem('isConnect') === '0' || localStorage.getItem('isConnect') === null) {
-      this.$router.push({path: '/connect'})
-    } else {
-      this.getBaseInfo()
-    }
+    this.getBaseInfo()
   },
   data () {
     return {
@@ -71,6 +70,7 @@ export default {
         version: '',
         data_version: '',
         video_num: 0,
+        ser_ip: '',
         uuid: '',
         show: 0
       },
@@ -80,7 +80,9 @@ export default {
   methods: {
     getBaseInfo () {
       var _this = this
-      var param = {}
+      var param = {
+        lh_zks_token: localStorage.getItem('usertoken')
+      }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -101,6 +103,7 @@ export default {
         return
       }
       var param = {
+        lh_zks_token: localStorage.getItem('usertoken'),
         zkbaseInfoData: JSON.stringify(_this.baseinfoList)
       }
       axios({

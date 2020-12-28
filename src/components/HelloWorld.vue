@@ -10,7 +10,6 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template slot="button-content"><em>{{zkip}}</em></template>
-            <b-dropdown-item @click="stopconnect">断开</b-dropdown-item>
             <b-dropdown-item @click="loginout">退出</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
@@ -114,12 +113,17 @@ export default {
       this.$router.push({path: '/connect'})
     },
     loginout () {
-      localStorage.setItem('isConnect', '0')
-      localStorage.setItem('zhongkongIP', '')
-      localStorage.setItem('isLogin', '0')
-      localStorage.setItem('passWord', '')
-      localStorage.setItem('mimastatus', '')
-      this.$router.push({path: '/login'})
+      // localStorage.setItem('isConnect', '0')
+      // localStorage.setItem('zhongkongIP', '')
+      // localStorage.setItem('isLogin', '0')
+      // localStorage.setItem('passWord', '')
+      // localStorage.setItem('mimastatus', '')
+      this.$router.push({path: '/'})
+      // if (localStorage.getItem('mimastatus') === '1') {
+      //   localStorage.setItem('passWord', '')
+      // } else {
+      //   localStorage.setItem('passWord', '')
+      // }
     },
     tabBaseinfoSeting () {
       this.$refs.childBaseinfoSeting.getBaseInfo()

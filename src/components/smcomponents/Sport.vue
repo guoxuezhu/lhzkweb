@@ -129,6 +129,7 @@ export default {
       var _this = this
       _this.ckNum = spnumer
       var param = {
+        lh_zks_token: localStorage.getItem('usertoken'),
         sportNum: spnumer
       }
       var sign = apply.appSign(param) // 添加签名
@@ -159,6 +160,7 @@ export default {
         _this.commandList[i].jinZhi = _this.jinzhiSelected
       }
       var param = {
+        lh_zks_token: localStorage.getItem('usertoken'),
         sportNum: _this.ckNum,
         baudRateId: _this.baudrateSelected,
         baudRate: _this.baudrateOptions[_this.baudrateSelected].text,

@@ -70,7 +70,9 @@ export default {
   methods: {
     mqttInfo () {
       var _this = this
-      var param = {}
+      var param = {
+        lh_zks_token: localStorage.getItem('usertoken')
+      }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -86,6 +88,7 @@ export default {
     },
     btnSendMsg (btnmsg) {
       var param = {
+        lh_zks_token: localStorage.getItem('usertoken'),
         zkbtn: btnmsg
       }
       var sign = apply.appSign(param) // 添加签名

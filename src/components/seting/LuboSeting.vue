@@ -61,7 +61,9 @@ export default {
   methods: {
     luboInfo () {
       var _this = this
-      var param = {}
+      var param = {
+        lh_zks_token: localStorage.getItem('usertoken')
+      }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -78,6 +80,7 @@ export default {
     luboInfoCommit () {
       var _this = this
       var param = {
+        lh_zks_token: localStorage.getItem('usertoken'),
         luboDatas: JSON.stringify(_this.lubo)
       }
       var sign = apply.appSign(param) // 添加签名

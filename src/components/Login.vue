@@ -45,7 +45,6 @@
 
 <script>
 import axios from 'axios'
-import apply from '../api/apply.js'
 import md5 from 'js-md5'
 import Qs from 'qs'
 export default {
@@ -72,8 +71,6 @@ export default {
         user_name: _this.userName,
         user_password: md5(this.userName + 'SWQxcGJxM2RrRkoyOTAxNGU' + this.passWord)
       }
-      var sign = apply.appSign(param) // 添加签名
-      param.sign = sign
       axios({
         method: 'post',
         url: 'http://' + _this.ZKIP + ':8099/api/lh_zk_login',
@@ -83,31 +80,27 @@ export default {
           return Qs.stringify(data)
         }]
       }).then(function (response) {
-        console.log('=======提交======提交=======' + JSON.stringify(response.data))
+        console.log('=======登录=======' + JSON.stringify(response.data))
         if (response.data.success) {
-          alert('修改成功')
+          console.log('=======登录==usertoken=====' + JSON.stringify(response.data.data))
+          localStorage.setItem('usertoken', response.data.data)
+          localStorage.setItem('zhongkongIP', _this.ZKIP)
+          localStorage.setItem('userName', _this.userName)
+          if (_this.status === '1') {
+            localStorage.setItem('passWord', _this.passWord)
+            localStorage.setItem('mimastatus', _this.status)
+          } else {
+            localStorage.setItem('passWord', '')
+            localStorage.setItem('mimastatus', '')
+          }
+          // localStorage.setItem('isLogin', '1')
+          _this.$router.push({path: '/helloWorld'})
         } else {
-          alert('修改失败')
+          alert(response.data.message)
         }
       }).catch(function (error) {
         alert(error)
       })
-      if (this.userName !== 'admin' || this.passWord !== 'admin') {
-        alert('用户名或密码错误')
-        return
-      }
-      console.log('=======登录=============')
-      if (this.status === '1') {
-        localStorage.setItem('userName', this.userName)
-        localStorage.setItem('passWord', this.passWord)
-        localStorage.setItem('mimastatus', this.status)
-      } else {
-        localStorage.setItem('userName', '')
-        localStorage.setItem('passWord', '')
-        localStorage.setItem('mimastatus', '')
-      }
-      localStorage.setItem('isLogin', '1')
-      this.$router.push({path: '/connect'})
     }
   }
 }
