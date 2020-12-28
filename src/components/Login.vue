@@ -9,9 +9,15 @@
             <h3 class="login_title">用户登录</h3>
             <b-input-group>
               <b-input-group-prepend>
+                <img src="../assets/connect.png" class="login_input_img">
+              </b-input-group-prepend>
+              <b-form-input type="text" size="lg" v-model.trim="ZKIP" placeholder="请输入设备IP地址"></b-form-input>
+            </b-input-group>
+            <br/>
+            <b-input-group>
+              <b-input-group-prepend>
                 <img src="../assets/zhanghao.png" class="login_input_img">
               </b-input-group-prepend>
-
               <b-form-input type="text" size="lg" v-model.trim="userName" placeholder="请输入用户名"></b-form-input>
             </b-input-group>
             <br/>
@@ -19,17 +25,14 @@
               <b-input-group-prepend>
                 <img src="../assets/mima.png" class="login_input_img">
               </b-input-group-prepend>
-
               <b-form-input type="password" size="lg" v-model.trim="passWord" placeholder="请输入密码"></b-form-input>
             </b-input-group>
-
             <b-container class="bv-example-row login_mima_jizhu">
               <b-row>
                 <b-col><b-form-checkbox v-model="status" value="1" unchecked-value="0">记住密码</b-form-checkbox></b-col>
                 <b-col><a href="javascript:return 0" class="a_login"><small>忘记密码?</small></a></b-col>
               </b-row>
             </b-container>
-
             <b-button @click="login" size="lg" variant="primary" class="loginbtn">登 录</b-button>
             <br/>
           </div>
@@ -41,12 +44,17 @@
 </template>
 
 <script>
+import axios from 'axios'
+import apply from '../api/apply.js'
+import md5 from 'js-md5'
+import Qs from 'qs'
 export default {
   name: 'Login',
   created () {
   },
   data () {
     return {
+      ZKIP: localStorage.getItem('zhongkongIP'),
       userName: localStorage.getItem('userName'),
       passWord: localStorage.getItem('passWord'),
       status: localStorage.getItem('mimastatus'),
@@ -55,10 +63,35 @@ export default {
   },
   methods: {
     login () {
-      if (this.userName === '' || this.passWord === '') {
-        alert('请输入用户名、密码')
+      if (this.userName === '' || this.passWord === '' || this.ZKIP === '') {
+        alert('请输入设备IP地址,用户名,密码')
         return
       }
+      var _this = this
+      var param = {
+        user_name: _this.userName,
+        user_password: md5(this.userName + 'SWQxcGJxM2RrRkoyOTAxNGU' + this.passWord)
+      }
+      var sign = apply.appSign(param) // 添加签名
+      param.sign = sign
+      axios({
+        method: 'post',
+        url: 'http://' + _this.ZKIP + ':8099/api/lh_zk_login',
+        data: param,
+        transformRequest: [function (data, headers) {
+          console.log('===headers=====：' + JSON.stringify(headers))
+          return Qs.stringify(data)
+        }]
+      }).then(function (response) {
+        console.log('=======提交======提交=======' + JSON.stringify(response.data))
+        if (response.data.success) {
+          alert('修改成功')
+        } else {
+          alert('修改失败')
+        }
+      }).catch(function (error) {
+        alert(error)
+      })
       if (this.userName !== 'admin' || this.passWord !== 'admin') {
         alert('用户名或密码错误')
         return

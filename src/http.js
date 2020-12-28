@@ -4,7 +4,7 @@ import * as types from './store/mutation-types'
 import router from './router'
 
 // axios 配置
-axios.defaults.timeout = 60000
+axios.defaults.timeout = 10000
 
 // 192.168.31.7
 // 192.168.31.180
