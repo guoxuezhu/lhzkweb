@@ -71,6 +71,15 @@ export default {
       })
     },
     doorInfoCommit () {
+      if (this.doorDataInfo.IP === '') {
+        alert('请输入门禁IP地址')
+        return
+      }
+      var reg = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/
+      if (reg.test(this.doorDataInfo.IP) === false) {
+        alert('输入的IP地址不合法')
+        return
+      }
       var _this = this
       var param = {
         lh_zks_token: localStorage.getItem('usertoken'),

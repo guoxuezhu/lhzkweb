@@ -106,6 +106,10 @@ export default {
         alert('请输入设备名称')
         return
       }
+      if (_this.baseinfoList.ser_ip.indexOf('http://') === -1 && _this.baseinfoList.ser_ip.indexOf('https://') === -1) {
+        alert('服务器地址不正确')
+        return
+      }
       var param = {
         lh_zks_token: localStorage.getItem('usertoken'),
         zkbaseInfoData: JSON.stringify(_this.baseinfoList)

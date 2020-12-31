@@ -65,6 +65,15 @@ export default {
       })
     },
     wgkzqInfoCommit () {
+      if (this.wgkzqDataInfo.name === '') {
+        alert('请输入网关控制器IP地址')
+        return
+      }
+      var reg = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/
+      if (reg.test(this.wgkzqDataInfo.name) === false) {
+        alert('输入的IP地址不合法')
+        return
+      }
       var _this = this
       var param = {
         lh_zks_token: localStorage.getItem('usertoken'),

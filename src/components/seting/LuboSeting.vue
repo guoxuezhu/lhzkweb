@@ -82,6 +82,23 @@ export default {
       })
     },
     luboInfoCommit () {
+      if (this.lubo.record_ip === '') {
+        alert('请输入录播IP地址')
+        return
+      }
+      if (this.lubo.record_user === '') {
+        alert('请输入录播用户名称')
+        return
+      }
+      if (this.lubo.record_pass === '') {
+        alert('请输入录播用户密码')
+        return
+      }
+      var reg = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/
+      if (reg.test(this.lubo.record_ip) === false) {
+        alert('输入的IP地址不合法')
+        return
+      }
       var _this = this
       var param = {
         lh_zks_token: localStorage.getItem('usertoken'),
