@@ -70,10 +70,14 @@ export default {
         params: param
       }).then(function (response) {
         console.log('=======事件=============' + JSON.stringify(response.data))
-        _this.eventList = response.data.data
-        _this.count = _this.eventList.length
-        _this.events = _this.eventList.slice(0, 10)
-        _this.currentPage = 1
+        if (response.data.success) {
+          _this.eventList = response.data.data
+          _this.count = _this.eventList.length
+          _this.events = _this.eventList.slice(0, 10)
+          _this.currentPage = 1
+        } else {
+          alert(response.data.message)
+        }
       }).catch(function (error) {
         alert(error)
       })
@@ -99,7 +103,7 @@ export default {
         if (response.data.success) {
           alert('修改成功')
         } else {
-          alert('修改失败')
+          alert('修改失败,' + response.data.message)
         }
       }).catch(function (error) {
         alert(error)

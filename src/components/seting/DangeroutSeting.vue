@@ -56,7 +56,11 @@ export default {
         params: param
       }).then(function (response) {
         console.log('=======mqtt=============' + JSON.stringify(response.data))
-        _this.dangerOutList = response.data.data
+        if (response.data.success) {
+          _this.dangerOutList = response.data.data
+        } else {
+          alert(response.data.message)
+        }
       }).catch(function (error) {
         alert(error)
       })
@@ -82,7 +86,7 @@ export default {
         if (response.data.success) {
           alert('修改成功')
         } else {
-          alert('修改失败')
+          alert('修改失败,' + response.data.message)
         }
       }).catch(function (error) {
         alert(error)

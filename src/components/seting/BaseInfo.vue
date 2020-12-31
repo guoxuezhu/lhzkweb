@@ -91,7 +91,11 @@ export default {
         params: param
       }).then(function (response) {
         console.log('=======getBaseInfo=============' + JSON.stringify(response.data))
-        _this.baseinfoList = response.data.data
+        if (response.data.success) {
+          _this.baseinfoList = response.data.data
+        } else {
+          alert(response.data.message)
+        }
       }).catch(function (error) {
         alert(error)
       })
@@ -119,7 +123,7 @@ export default {
         if (response.data.success) {
           alert('修改成功')
         } else {
-          alert('修改失败')
+          alert('修改失败,' + response.data.message)
         }
       }).catch(function (error) {
         alert(error)

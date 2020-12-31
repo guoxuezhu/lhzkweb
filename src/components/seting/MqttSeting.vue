@@ -83,7 +83,7 @@ export default {
         if (response.data.success) {
           alert('修改成功')
         } else {
-          alert('修改失败')
+          alert('修改失败,' + response.data.message)
         }
       }).catch(function (error) {
         alert(error)

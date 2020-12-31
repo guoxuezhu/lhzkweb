@@ -106,7 +106,7 @@ export default {
         if (response.data.success) {
           alert('成功')
         } else {
-          alert('失败')
+          alert('失败,' + response.data.message)
         }
       }).catch(function (error) {
         alert(error)
