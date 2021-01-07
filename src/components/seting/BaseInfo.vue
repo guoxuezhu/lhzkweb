@@ -80,9 +80,7 @@ export default {
   methods: {
     getBaseInfo () {
       var _this = this
-      var param = {
-        lh_zks_token: localStorage.getItem('usertoken')
-      }
+      var param = {}
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -111,9 +109,10 @@ export default {
         return
       }
       var param = {
-        lh_zks_token: localStorage.getItem('usertoken'),
         zkbaseInfoData: JSON.stringify(_this.baseinfoList)
       }
+      var sign = apply.appSign(param) // 添加签名
+      param.sign = sign
       axios({
         method: 'post',
         url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/updataZKbaseInfo',

@@ -2,7 +2,7 @@ import md5 from 'js-md5'
 export default {
   appSign (params) {
     // 应用公钥
-    var clientId = 't123456789'
+    var clientId = 'SWQxcGJxM2RrRkoyOTAxNGU'
     // 应用私钥 当做token 参与加密
     var appKey = 'SXT'
     var timestamp = parseInt(new Date().getTime() / 1000)
@@ -25,6 +25,7 @@ export default {
       values.push(keys[i] + '=' + value)
     }
     var signStr = values.join('&') + appKey
+    console.log('=======signStr=======' + signStr)
     var sign = md5(signStr)
     return sign
   }

@@ -44,9 +44,7 @@ export default {
   methods: {
     wgkzqInfo () {
       var _this = this
-      var param = {
-        lh_zks_token: localStorage.getItem('usertoken')
-      }
+      var param = {}
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -76,7 +74,6 @@ export default {
       }
       var _this = this
       var param = {
-        lh_zks_token: localStorage.getItem('usertoken'),
         wgkzqDatas: JSON.stringify(_this.wgkzqDataInfo)
       }
       var sign = apply.appSign(param) // 添加签名

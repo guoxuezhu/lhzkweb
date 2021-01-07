@@ -59,9 +59,7 @@ export default {
     },
     eventInfo () {
       var _this = this
-      var param = {
-        lh_zks_token: localStorage.getItem('usertoken')
-      }
+      var param = {}
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -85,7 +83,6 @@ export default {
     EventInfoCommit () {
       var _this = this
       var param = {
-        lh_zks_token: localStorage.getItem('usertoken'),
         eventDatas: JSON.stringify(_this.eventList)
       }
       var sign = apply.appSign(param) // 添加签名

@@ -50,9 +50,7 @@ export default {
   methods: {
     doorInfo () {
       var _this = this
-      var param = {
-        lh_zks_token: localStorage.getItem('usertoken')
-      }
+      var param = {}
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -82,7 +80,6 @@ export default {
       }
       var _this = this
       var param = {
-        lh_zks_token: localStorage.getItem('usertoken'),
         doorDatas: JSON.stringify(_this.doorDataInfo)
       }
       var sign = apply.appSign(param) // 添加签名

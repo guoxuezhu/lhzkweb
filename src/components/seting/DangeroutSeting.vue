@@ -45,9 +45,7 @@ export default {
   methods: {
     dangeroutInfo () {
       var _this = this
-      var param = {
-        lh_zks_token: localStorage.getItem('usertoken')
-      }
+      var param = {}
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -68,7 +66,6 @@ export default {
     dangerOutInfoCommit () {
       var _this = this
       var param = {
-        lh_zks_token: localStorage.getItem('usertoken'),
         dangerOutDatas: JSON.stringify(_this.dangerOutList)
       }
       var sign = apply.appSign(param) // 添加签名

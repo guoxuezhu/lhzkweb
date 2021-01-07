@@ -46,9 +46,7 @@ export default {
   methods: {
     jdqInfo () {
       var _this = this
-      var param = {
-        lh_zks_token: localStorage.getItem('usertoken')
-      }
+      var param = {}
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -69,7 +67,6 @@ export default {
     jdqInfoCommit () {
       var _this = this
       var param = {
-        lh_zks_token: localStorage.getItem('usertoken'),
         jdqDatas: JSON.stringify(_this.jdqList)
       }
       var sign = apply.appSign(param) // 添加签名
