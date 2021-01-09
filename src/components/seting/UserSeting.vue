@@ -6,7 +6,7 @@
       <template slot="index" slot-scope="datas">
         {{ datas.index + 1 }}
       </template>
-      <template slot="userPaw" slot-scope="datas">××××××</template>
+      <template slot="userPaw" slot-scope="datas">******</template>
       <template slot="user_status" slot-scope="datas">
         <p v-if="datas.item.user_status === 1" >正常</p>
         <p v-else class="h_color">锁定</p>
