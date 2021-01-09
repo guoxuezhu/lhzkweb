@@ -135,7 +135,7 @@ export default {
         return
       }
       if (this.ic_numer.length !== 10) {
-        alert('请输入请输入10位数字卡号')
+        alert('请输入10位数字卡号')
         return
       }
       var _this = this

@@ -6,6 +6,7 @@
       <template slot="index" slot-scope="datas">
         {{ datas.index + 1 }}
       </template>
+      <template slot="userPaw" slot-scope="datas">××××××</template>
       <template slot="user_status" slot-scope="datas">
         <p v-if="datas.item.user_status === 1" >正常</p>
         <p v-else class="h_color">锁定</p>
@@ -139,7 +140,7 @@ export default {
         return
       }
       if (this.etuserPaw1 !== this.etuserPaw2) {
-        alert('请输入用户名,密码')
+        alert('两次输入密码不一致')
         return
       }
       var _this = this
