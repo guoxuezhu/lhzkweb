@@ -28,7 +28,6 @@ export default {
       values.push(keys[i] + '=' + value)
     }
     var signStr = values.join('&') + appKey
-    console.log('=======signStr=======' + signStr)
     var sign = md5(signStr)
     return sign
   }
