@@ -3,9 +3,7 @@
     <b-button class="btn_tijiao" variant="outline-success" @click="addUseradmin()">添 加</b-button>
     <br><br>
     <b-table striped hover :items="userList" :fields="fields" :current-page="currentPage" :per-page="perPage">
-      <template slot="index" slot-scope="datas">
-        {{ datas.index + 1 }}
-      </template>
+      <template slot="index" slot-scope="datas">{{ datas.index + 1 }}</template>
       <template slot="userPaw" slot-scope="datas">******</template>
       <template slot="user_status" slot-scope="datas">
         <p v-if="datas.item.user_status === 1" >正常</p>
