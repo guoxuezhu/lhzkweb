@@ -44,14 +44,20 @@
       <b-tab title="网关控制器设置" @click="tabWgkzqSeting">
         <WgkzqSeting ref="childWgkzqSeting"></WgkzqSeting>
       </b-tab>
-      <b-tab title="系统重启设置" @click="tabRebootSeting">
+      <!-- <b-tab title="系统重启设置" @click="tabRebootSeting">
         <RebootSeting ref="childRebootSeting"></RebootSeting>
-      </b-tab>
+      </b-tab> -->
       <!-- <b-tab title="温湿度设置">
         <WsdSeting></WsdSeting>
       </b-tab> -->
       <b-tab title="事件设置" @click="tabEventSeting">
         <EventSeting ref="childEventSeting"></EventSeting>
+      </b-tab>
+      <b-tab title="用户管理" @click="tabUserSeting">
+        <UserSeting ref="childUserSeting"></UserSeting>
+      </b-tab>
+      <b-tab title="IC卡管理" @click="tabICSeting">
+        <ICSeting ref="childICSeting"></ICSeting>
       </b-tab>
       <!-- <b-tab title="远程服务设置" @click="tabMqttSeting">
         <MqttSeting ref="childMqttSeting"></MqttSeting>
@@ -67,6 +73,8 @@
 import BaseInfo from './seting/BaseInfo.vue'
 import DangerSeting from './seting/DangerSeting.vue'
 import EventSeting from './seting/EventSeting.vue'
+import UserSeting from './seting/UserSeting.vue'
+import ICSeting from './seting/ICSeting.vue'
 import JdqSeting from './seting/JdqSeting.vue'
 import LuboSeting from './seting/LuboSeting.vue'
 import SportSeting from './seting/SportSeting.vue'
@@ -84,6 +92,8 @@ export default {
     BaseInfo,
     DangerSeting,
     EventSeting,
+    UserSeting,
+    ICSeting,
     JdqSeting,
     LuboSeting,
     SportSeting,
@@ -133,6 +143,12 @@ export default {
     },
     tabEventSeting () {
       this.$refs.childEventSeting.eventInfo()
+    },
+    tabUserSeting () {
+      this.$refs.childUserSeting.userlistInfo()
+    },
+    tabICSeting () {
+      this.$refs.childICSeting.icListInfo()
     },
     tabJdqSeting () {
       this.$refs.childJdqSeting.jdqInfo()
