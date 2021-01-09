@@ -28,7 +28,7 @@
       <br>
       <b-input-group>
         <b-input-group-prepend is-text><b style="width: 118px;">卡号</b></b-input-group-prepend>
-        <b-form-input type="text" v-model.trim="ic_numer" placeholder="请输入卡号"></b-form-input>
+        <b-form-input type="number" v-model.trim="ic_numer" placeholder="请输入卡号"></b-form-input>
       </b-input-group>
     </b-modal>
   </div>
@@ -130,6 +130,14 @@ export default {
       })
     },
     addICCommit () {
+      if (this.ic_numer === '' || this.icWorknum === '' || this.icTname === '') {
+        alert('请输入工号,老师名称,卡号')
+        return
+      }
+      if (this.ic_numer.length !== 10) {
+        alert('请输入请输入10位数字卡号')
+        return
+      }
       var _this = this
       var param = {
         ic_id: _this.icId,

@@ -27,12 +27,12 @@
       <br>
       <b-input-group>
         <b-input-group-prepend is-text><b style="width: 118px;">密码</b></b-input-group-prepend>
-        <b-form-input type="text" v-model.trim="etuserPaw1" placeholder="请输入密码"></b-form-input>
+        <b-form-input type="password" v-model.trim="etuserPaw1" placeholder="请输入密码"></b-form-input>
       </b-input-group>
       <br>
       <b-input-group>
         <b-input-group-prepend is-text><b style="width: 118px;">再次输入密码</b></b-input-group-prepend>
-        <b-form-input type="text" v-model.trim="etuserPaw2" placeholder="请再次输入密码"></b-form-input>
+        <b-form-input type="password" v-model.trim="etuserPaw2" placeholder="请再次输入密码"></b-form-input>
       </b-input-group>
     </b-modal>
   </div>
@@ -134,6 +134,14 @@ export default {
       })
     },
     addUserCommit () {
+      if (this.etuserName === '' || this.etuserPaw1 === '' || this.etuserPaw2 === '') {
+        alert('请输入用户名,密码')
+        return
+      }
+      if (this.etuserPaw1 !== this.etuserPaw2) {
+        alert('请输入用户名,密码')
+        return
+      }
       var _this = this
       var param = {
         user_id: _this.userId,
