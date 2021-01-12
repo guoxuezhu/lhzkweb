@@ -47,6 +47,7 @@
 import axios from 'axios'
 import md5 from 'js-md5'
 import Qs from 'qs'
+import apply from '../api/apply.js'
 export default {
   name: 'Login',
   created () {
@@ -71,6 +72,8 @@ export default {
         user_name: _this.userName,
         user_password: md5(this.userName + 'SWQxcGJxM2RrRkoyOTAxNGU' + this.passWord)
       }
+      var sign = apply.appSign(param) // 添加签名
+      param.sign = sign
       axios({
         method: 'post',
         url: 'http://' + _this.ZKIP + ':8099/api/lh_zk_login',
