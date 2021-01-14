@@ -34,6 +34,7 @@ export default {
     rebootInfo () {
       var _this = this
       var param = {
+        user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken')
       }
       var sign = apply.appSign(param) // 添加签名
@@ -56,6 +57,7 @@ export default {
     rebootTimeInfoCommit () {
       var _this = this
       var param = {
+        user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken'),
         rebootTime: _this.rebootTimeData
       }

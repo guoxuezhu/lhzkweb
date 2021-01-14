@@ -46,6 +46,7 @@ export default {
     dangeroutInfo () {
       var _this = this
       var param = {
+        user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken')
       }
       var sign = apply.appSign(param) // 添加签名
@@ -68,6 +69,7 @@ export default {
     dangerOutInfoCommit () {
       var _this = this
       var param = {
+        user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken'),
         dangerOutDatas: JSON.stringify(_this.dangerOutList)
       }
