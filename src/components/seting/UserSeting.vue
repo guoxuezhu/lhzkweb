@@ -65,7 +65,7 @@ export default {
     userlistInfo () {
       var _this = this
       var param = {
-        user_name: localStorage.getItem('userName'),
+        login_user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken')
       }
       var sign = apply.appSign(param) // 添加签名
@@ -110,7 +110,7 @@ export default {
     deleteUserCommit () {
       var _this = this
       var param = {
-        user_name: localStorage.getItem('userName'),
+        login_user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken'),
         user_id: _this.userId
       }
@@ -148,7 +148,7 @@ export default {
       }
       var _this = this
       var param = {
-        user_name: localStorage.getItem('userName'),
+        login_user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken'),
         user_id: _this.userId,
         user_name: _this.etuserName,

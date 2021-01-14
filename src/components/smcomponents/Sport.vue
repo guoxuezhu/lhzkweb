@@ -129,7 +129,7 @@ export default {
       var _this = this
       _this.ckNum = spnumer
       var param = {
-        user_name: localStorage.getItem('userName'),
+        login_user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken'),
         sportNum: spnumer
       }
@@ -165,7 +165,7 @@ export default {
         _this.commandList[i].jinZhi = _this.jinzhiSelected
       }
       var param = {
-        user_name: localStorage.getItem('userName'),
+        login_user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken'),
         sportNum: _this.ckNum,
         baudRateId: _this.baudrateSelected,

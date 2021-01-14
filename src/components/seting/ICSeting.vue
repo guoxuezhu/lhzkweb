@@ -61,7 +61,7 @@ export default {
     icListInfo () {
       var _this = this
       var param = {
-        user_name: localStorage.getItem('userName'),
+        login_user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken')
       }
       var sign = apply.appSign(param) // 添加签名
@@ -106,7 +106,7 @@ export default {
     deleteICCommit () {
       var _this = this
       var param = {
-        user_name: localStorage.getItem('userName'),
+        login_user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken'),
         ic_id: _this.icId
       }
@@ -144,7 +144,7 @@ export default {
       }
       var _this = this
       var param = {
-        user_name: localStorage.getItem('userName'),
+        login_user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken'),
         ic_id: _this.icId,
         ic_num: _this.ic_numer,

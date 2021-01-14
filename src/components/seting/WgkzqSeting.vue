@@ -45,7 +45,7 @@ export default {
     wgkzqInfo () {
       var _this = this
       var param = {
-        user_name: localStorage.getItem('userName'),
+        login_user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken')
       }
       var sign = apply.appSign(param) // 添加签名
@@ -77,7 +77,7 @@ export default {
       }
       var _this = this
       var param = {
-        user_name: localStorage.getItem('userName'),
+        login_user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken'),
         wgkzqDatas: JSON.stringify(_this.wgkzqDataInfo)
       }

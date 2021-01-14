@@ -81,7 +81,7 @@ export default {
     getBaseInfo () {
       var _this = this
       var param = {
-        user_name: localStorage.getItem('userName'),
+        login_user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken')
       }
       var sign = apply.appSign(param) // 添加签名
@@ -112,7 +112,7 @@ export default {
         return
       }
       var param = {
-        user_name: localStorage.getItem('userName'),
+        login_user_name: localStorage.getItem('userName'),
         lh_zks_token: localStorage.getItem('usertoken'),
         zkbaseInfoData: JSON.stringify(_this.baseinfoList)
       }
