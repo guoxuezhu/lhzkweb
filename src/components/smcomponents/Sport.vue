@@ -142,16 +142,20 @@ export default {
       }).then(function (response) {
         console.log('=======串口=============' + JSON.stringify(response.data.data))
         if (response.data.success) {
-          _this.baudrateSelected = response.data.data.serialPortData.baudRateId
-          _this.checkoutBitSelected = response.data.data.serialPortData.checkoutBitId
-          _this.dataBitSelected = response.data.data.serialPortData.dataBitId
-          _this.stopBitSelected = response.data.data.serialPortData.stopBitId
-          _this.bindName = response.data.data.serialPortData.deviceName
-          _this.jinzhiSelected = response.data.data.serialPortData.jinZhi
-          _this.commandList = response.data.data.serialCommandList
-          _this.count = _this.commandList.length
-          _this.commands = _this.commandList.slice(0, 10)
-          _this.currentPage = 1
+          if (response.data.data.serialCommandList.length === 0) {
+            alert('无数据或者无此串口')
+          } else {
+            _this.baudrateSelected = response.data.data.serialPortData.baudRateId
+            _this.checkoutBitSelected = response.data.data.serialPortData.checkoutBitId
+            _this.dataBitSelected = response.data.data.serialPortData.dataBitId
+            _this.stopBitSelected = response.data.data.serialPortData.stopBitId
+            _this.bindName = response.data.data.serialPortData.deviceName
+            _this.jinzhiSelected = response.data.data.serialPortData.jinZhi
+            _this.commandList = response.data.data.serialCommandList
+            _this.count = _this.commandList.length
+            _this.commands = _this.commandList.slice(0, 10)
+            _this.currentPage = 1
+          }
         } else {
           alert(response.data.message)
         }
