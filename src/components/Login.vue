@@ -6,7 +6,6 @@
         <b-col cols="6"></b-col>
         <b-col cols="4">
           <div class="login_Layout" @keyup.enter="login($event)">
-            <h3 class="login_title">用户登录</h3>
             <b-input-group>
               <b-input-group-prepend>
                 <img src="../assets/connect.png" class="login_input_img">
@@ -33,7 +32,7 @@
                 <b-col><a href="javascript:return 0" class="a_login"><small>忘记密码?</small></a></b-col>
               </b-row>
             </b-container>
-            <b-button @click="login" size="lg" variant="primary" class="loginbtn">登 录</b-button>
+            <b-button @click="login" size="lg" variant="primary" class="loginbtn">连 接</b-button>
             <br/>
           </div>
         </b-col>
