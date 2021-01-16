@@ -11,7 +11,7 @@
       </template>
     </b-table>
     <b-pagination v-model="currentPage" :total-rows="count" :per-page="perPage" align="center"></b-pagination>
-    <b-modal id="deletemodal" title="提示" size="sm" @ok="deleteICCommit" cancel-title="取消" ok-title="确定">
+    <b-modal id="IcDeletemodal" title="提示" size="sm" @ok="deleteICCommit" cancel-title="取消" ok-title="确定">
       <h6 class="btn_lubo_tijiao h_color">你确定删除吗 !!!</h6>
     </b-modal>
     <b-modal id="icmodal" title="用户信息" @ok="addICCommit" cancel-title="取消" ok-title="确定">
@@ -98,7 +98,7 @@ export default {
     deleteIC (item) {
       console.log('==========deleteIC==========' + JSON.stringify(item))
       this.icId = item.cardNumId
-      this.$root.$emit('bv::show::modal', 'deletemodal')
+      this.$root.$emit('bv::show::modal', 'IcDeletemodal')
     },
     deleteICCommit () {
       var _this = this
