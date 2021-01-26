@@ -22,6 +22,9 @@ export default {
     var values = []
     for (var i = 0; i < keys.length; i++) {
       var value = encodeURIComponent(params[keys[i]])
+      if (value === 'null') {
+        value = ''
+      }
       values.push(keys[i] + '=' + value)
     }
     var signStr = values.join('&') + appKey
