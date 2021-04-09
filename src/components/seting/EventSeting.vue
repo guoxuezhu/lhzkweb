@@ -5,7 +5,7 @@
     <div v-for="event in events" :key="event.id">
       <b-input-group >
         <b-input-group-prepend is-text><b style="width: 118px;">{{event.id}}</b></b-input-group-prepend>
-        <b-input-group-prepend is-text><b style="width: 138px;">{{event.name}}</b></b-input-group-prepend>
+        <b-input-group-prepend is-text><b style="width: 238px;">{{event.name}}</b></b-input-group-prepend>
         <b-form-input type="text" v-model.trim="event.strMLs" placeholder="请输入操作指令"></b-form-input>
         <b-input-group-append is-text><b style="width: 150px;">{{event.time}}</b></b-input-group-append>
       </b-input-group>

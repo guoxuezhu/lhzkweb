@@ -3,6 +3,8 @@
     <br><br>
     <b-button @click="btnSendMsg('SKJAA')" v-b-popover.hover.right="'没有卡的时候可以控制操作面板进入控制界面'"
       variant="outline-success">启动操作面板</b-button>
+    <b-button @click="wsdDatadao()" variant="outline-success">温湿度数据</b-button>
+    <b-button @click="dnbDatadao()" variant="outline-success">电能表数据</b-button>
     <br><br>
     <div class="borde_1">
       <b>视频一键全切</b>
@@ -43,6 +45,10 @@
       <b-button @click="btnSendMsg('MBS12')" variant="outline-success" class="vid_btn">幕布降</b-button>
       <b-button @click="btnSendMsg('MBS40')" variant="outline-success" class="vid_btn">空调关</b-button>
       <br><br>
+      <b-button @click="btnSendMsg('MBS8001')" variant="outline-success" class="vid_btn">电风扇关</b-button>
+      <b-button @click="btnSendMsg('MBS8002')" variant="outline-success" class="vid_btn">风速1级</b-button>
+      <b-button @click="btnSendMsg('MBS8003')" variant="outline-success" class="vid_btn">风速2级</b-button>
+      <b-button @click="btnSendMsg('MBS8004')" variant="outline-success" class="vid_btn">风速3级</b-button>
       <b-button @click="btnSendMsg('MJD46')" variant="outline-success" class="vid_btn">门禁</b-button>
     </div>
   </div>
@@ -58,34 +64,41 @@ export default {
   },
   data () {
     return {
-      mqttdata: {
-        classRoom: '',
-        mqttuser: '',
-        mqttpassword: '',
-        uuid: ''
-      },
       msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
-    mqttInfo () {
-      var _this = this
+    wsdDatadao () {
       var param = {}
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
         method: 'get',
-        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/mqttInfo',
+        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/get_datadao_wsd',
         params: param
       }).then(function (response) {
-        console.log('=======mqtt=============' + JSON.stringify(response.data))
-        _this.mqttdata = response.data.data
+        console.log('=======wsdDatadao=============' + JSON.stringify(response.data))
+      }).catch(function (error) {
+        alert(error)
+      })
+    },
+    dnbDatadao () {
+      var param = {}
+      var sign = apply.appSign(param) // 添加签名
+      param.sign = sign
+      axios({
+        method: 'get',
+        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/get_datadao_dnb',
+        params: param
+      }).then(function (response) {
+        console.log('=======dnbDatadao=============' + JSON.stringify(response.data))
       }).catch(function (error) {
         alert(error)
       })
     },
     btnSendMsg (btnmsg) {
       var param = {
+        login_user_name: localStorage.getItem('userName'),
         zkbtn: btnmsg
       }
       var sign = apply.appSign(param) // 添加签名
