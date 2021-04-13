@@ -7,37 +7,37 @@
       </b-col>
       <b-col lg="6" class="btn_lubo_tijiao">
         <b-input-group>
-          <b-input-group-prepend is-text><b style="width: 118px;">设备名称</b></b-input-group-prepend>
+          <b-input-group-prepend is-text><b style="width: 128px;">设备名称</b></b-input-group-prepend>
           <b-form-input type="text" v-model.trim="baseinfoList.title" placeholder="请输入设备名称"></b-form-input>
         </b-input-group>
         <br>
         <b-input-group>
-          <b-input-group-prepend is-text><b style="width: 118px;">IP 地址</b></b-input-group-prepend>
+          <b-input-group-prepend is-text><b style="width: 128px;">IP 地址</b></b-input-group-prepend>
           <b-form-input type="text" disabled v-model.trim="baseinfoList.ip" placeholder="请输入IP地址"></b-form-input>
         </b-input-group>
         <br>
         <b-input-group>
-          <b-input-group-prepend is-text><b style="width: 118px;">系统版本</b></b-input-group-prepend>
+          <b-input-group-prepend is-text><b style="width: 128px;">系统版本</b></b-input-group-prepend>
           <b-form-input type="text" disabled v-model.trim="baseinfoList.version" placeholder="请输入系统版本"></b-form-input>
         </b-input-group>
         <br>
         <b-input-group>
-          <b-input-group-prepend is-text><b style="width: 118px;">数据库版本</b></b-input-group-prepend>
+          <b-input-group-prepend is-text><b style="width: 128px;">数据库版本</b></b-input-group-prepend>
           <b-form-input type="text" disabled v-model.trim="baseinfoList.data_version" placeholder="请输入数据库版本"></b-form-input>
         </b-input-group>
         <br>
         <b-input-group>
-          <b-input-group-prepend is-text><b style="width: 118px;">显示屏个数</b></b-input-group-prepend>
+          <b-input-group-prepend is-text><b style="width: 128px;">显示屏个数</b></b-input-group-prepend>
           <b-form-input type="number" min="0" v-model.trim="baseinfoList.video_num" placeholder="请输入显示屏个数"></b-form-input>
         </b-input-group>
         <br>
         <b-input-group>
-          <b-input-group-prepend is-text><b style="width: 118px;">服务器地址</b></b-input-group-prepend>
+          <b-input-group-prepend is-text><b style="width: 128px;">服务器地址</b></b-input-group-prepend>
           <b-form-input type="text" v-model.trim="baseinfoList.ser_ip" placeholder="请输入服务器地址"></b-form-input>
         </b-input-group>
         <br>
         <b-input-group>
-          <b-input-group-prepend is-text><b style="width: 118px;">外网控制</b></b-input-group-prepend>
+          <b-input-group-prepend is-text><b style="width: 128px;">外网控制</b></b-input-group-prepend>
           <b-form-select v-model="baseinfoList.show" :options="mqttStatusOptions"></b-form-select>
         </b-input-group>
         <br>

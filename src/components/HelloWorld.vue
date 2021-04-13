@@ -47,9 +47,6 @@
       <!-- <b-tab title="系统重启设置" @click="tabRebootSeting">
         <RebootSeting ref="childRebootSeting"></RebootSeting>
       </b-tab> -->
-      <!-- <b-tab title="温湿度设置">
-        <WsdSeting></WsdSeting>
-      </b-tab> -->
       <b-tab title="事件设置" @click="tabEventSeting">
         <EventSeting ref="childEventSeting"></EventSeting>
       </b-tab>
@@ -59,9 +56,15 @@
       <b-tab title="IC卡管理" @click="tabICSeting">
         <ICSeting ref="childICSeting"></ICSeting>
       </b-tab>
-      <!-- <b-tab title="远程服务设置" @click="tabMqttSeting">
+      <b-tab title="控制面板设置" @click="tabUiSeting">
+        <UIkzSeting ref="childUiSeting"></UIkzSeting>
+      </b-tab>
+      <b-tab title="空调设置" @click="tabKtSeting">
+        <WsdSeting ref="childKtSeting"></WsdSeting>
+      </b-tab>
+      <b-tab title="电脑设置" @click="tabMqttSeting">
         <MqttSeting ref="childMqttSeting"></MqttSeting>
-      </b-tab> -->
+      </b-tab>
       <b-tab title="控制面板">
         <ZKban></ZKban>
       </b-tab>
@@ -85,6 +88,7 @@ import DangeroutSeting from './seting/DangeroutSeting.vue'
 import ZKban from './seting/ZKban.vue'
 import DoorSeting from './seting/DoorSeting.vue'
 import WgkzqSeting from './seting/WgkzqSeting.vue'
+import UIkzSeting from './seting/UIkzSeting.vue'
 import RebootSeting from './seting/RebootSeting.vue'
 import vueCanvasNest from 'vue-canvas-nest'
 export default {
@@ -104,6 +108,7 @@ export default {
     WgkzqSeting,
     RebootSeting,
     ZKban,
+    UIkzSeting,
     DangeroutSeting,
     vueCanvasNest
   },
@@ -156,8 +161,14 @@ export default {
     tabLuboSeting () {
       this.$refs.childLuboSeting.luboInfo()
     },
+    tabUiSeting () {
+      this.$refs.childUiSeting.uiInfo()
+    },
+    tabKtSeting () {
+      this.$refs.childKtSeting.ktInfo()
+    },
     tabMqttSeting () {
-      this.$refs.childMqttSeting.mqttInfo()
+      this.$refs.childMqttSeting.diannaoInfo()
     },
     tabIOoutSeting () {
       this.$refs.childIOoutSeting.iooutInfo()

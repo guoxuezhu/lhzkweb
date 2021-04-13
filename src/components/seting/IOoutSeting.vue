@@ -5,10 +5,10 @@
     <div v-for="ioOut in ioOutList" :key="ioOut.id">
       <div class="danger_bg">
         <b-row>
-          <b-col lg="3">
+          <b-col lg="2">
             <b>{{ioOut.name}}</b>
           </b-col>
-          <b-col lg="5">
+          <b-col lg="6">
             <b-input-group prepend="绑定的设备">
               <b-form-input type="text" v-model.trim="ioOut.deviceName" placeholder="请输入绑定的设备"></b-form-input>
             </b-input-group>

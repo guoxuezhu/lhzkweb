@@ -7,22 +7,22 @@
         </b-col>
         <b-col lg="6" class="btn_lubo_tijiao">
           <b-input-group>
-            <b-input-group-prepend is-text><b style="width: 118px;">录播IP地址</b></b-input-group-prepend>
+            <b-input-group-prepend is-text><b style="width: 128px;">录播IP地址</b></b-input-group-prepend>
             <b-form-input type="text" v-model.trim="lubo.record_ip" placeholder="请输入录播IP地址"></b-form-input>
           </b-input-group>
           <br>
           <b-input-group>
-            <b-input-group-prepend is-text><b style="width: 118px;">录播用户名称</b></b-input-group-prepend>
+            <b-input-group-prepend is-text><b style="width: 128px;">录播用户名称</b></b-input-group-prepend>
             <b-form-input type="text" v-model.trim="lubo.record_user" placeholder="请输入录播用户名称"></b-form-input>
           </b-input-group>
           <br>
           <b-input-group>
-            <b-input-group-prepend is-text><b style="width: 118px;">录播用户密码</b></b-input-group-prepend>
+            <b-input-group-prepend is-text><b style="width: 128px;">录播用户密码</b></b-input-group-prepend>
             <b-form-input type="text" v-model.trim="lubo.record_pass" placeholder="请输入录播用户密码"></b-form-input>
           </b-input-group>
           <br>
           <b-input-group>
-            <b-input-group-prepend is-text><b style="width: 118px;">是否启用</b></b-input-group-prepend>
+            <b-input-group-prepend is-text><b style="width: 128px;">是否启用</b></b-input-group-prepend>
             <b-form-select v-model="lubo.status" :options="luboStatusOptions"></b-form-select>
           </b-input-group>
           <br>

@@ -6,12 +6,12 @@
       </b-col>
       <b-col lg="6" class="btn_lubo_tijiao">
         <b-input-group>
-          <b-input-group-prepend is-text><b style="width: 118px;">网关控制器IP地址</b></b-input-group-prepend>
+          <b-input-group-prepend is-text><b style="width: 128px;">网关控制器IP地址</b></b-input-group-prepend>
           <b-form-input type="text" v-model.trim="wgkzqDataInfo.name" placeholder="请输入网关控制器IP地址"></b-form-input>
         </b-input-group>
         <br>
         <b-input-group>
-          <b-input-group-prepend is-text><b style="width: 118px;">是否启用</b></b-input-group-prepend>
+          <b-input-group-prepend is-text><b style="width: 128px;">是否启用</b></b-input-group-prepend>
           <b-form-select v-model="wgkzqDataInfo.status" :options="wgkzqStatusOptions"></b-form-select>
         </b-input-group>
         <br>
