@@ -5,6 +5,7 @@
       variant="outline-success">启动操作面板</b-button>
     <b-button @click="wsdDatadao()" variant="outline-success">温湿度数据</b-button>
     <b-button @click="dnbDatadao()" variant="outline-success">电能表数据</b-button>
+    <b-button @click="deviceDatadao()" variant="outline-success">设备状态数据</b-button>
     <br><br>
     <div class="borde_1">
       <b>视频一键全切</b>
@@ -92,6 +93,20 @@ export default {
         params: param
       }).then(function (response) {
         console.log('=======dnbDatadao=============' + JSON.stringify(response.data))
+      }).catch(function (error) {
+        alert(error)
+      })
+    },
+    deviceDatadao () {
+      var param = {}
+      var sign = apply.appSign(param) // 添加签名
+      param.sign = sign
+      axios({
+        method: 'get',
+        url: 'http://' + localStorage.getItem('zhongkongIP') + ':8099/api/deviceStatus',
+        params: param
+      }).then(function (response) {
+        console.log('=======deviceDatadao=============' + JSON.stringify(response.data))
       }).catch(function (error) {
         alert(error)
       })
