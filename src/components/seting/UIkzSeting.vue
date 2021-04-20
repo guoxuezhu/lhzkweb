@@ -38,7 +38,10 @@ export default {
   methods: {
     uiInfo () {
       var _this = this
-      var param = {}
+      var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken')
+      }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -59,6 +62,8 @@ export default {
     uiInfoCommit () {
       var _this = this
       var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken'),
         ui_status_datas: JSON.stringify(_this.uiData)
       }
       var sign = apply.appSign(param) // 添加签名

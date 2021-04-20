@@ -60,7 +60,10 @@ export default {
   methods: {
     icListInfo () {
       var _this = this
-      var param = {}
+      var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken')
+      }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -103,6 +106,8 @@ export default {
     deleteICCommit () {
       var _this = this
       var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken'),
         ic_id: _this.icId
       }
       var sign = apply.appSign(param) // 添加签名
@@ -139,6 +144,8 @@ export default {
       }
       var _this = this
       var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken'),
         ic_id: _this.icId,
         ic_num: _this.ic_numer,
         work_number: _this.icWorknum,

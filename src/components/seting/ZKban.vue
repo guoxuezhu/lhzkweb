@@ -70,7 +70,10 @@ export default {
   },
   methods: {
     wsdDatadao () {
-      var param = {}
+      var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken')
+      }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -84,7 +87,10 @@ export default {
       })
     },
     dnbDatadao () {
-      var param = {}
+      var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken')
+      }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -98,7 +104,10 @@ export default {
       })
     },
     deviceDatadao () {
-      var param = {}
+      var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken')
+      }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -113,6 +122,7 @@ export default {
     },
     btnSendMsg (btnmsg) {
       var param = {
+        lh_zks_token: localStorage.getItem('usertoken'),
         login_user_name: localStorage.getItem('userName'),
         zkbtn: btnmsg
       }

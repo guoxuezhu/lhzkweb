@@ -54,7 +54,10 @@ export default {
   methods: {
     getDangerInfo () {
       var _this = this
-      var param = {}
+      var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken')
+      }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -75,6 +78,8 @@ export default {
     DangerInfoCommit () {
       var _this = this
       var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken'),
         dangerDatas: JSON.stringify(_this.dangerList)
       }
       var sign = apply.appSign(param) // 添加签名

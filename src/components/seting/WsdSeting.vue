@@ -86,7 +86,10 @@ export default {
   methods: {
     ktInfo () {
       var _this = this
-      var param = {}
+      var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken')
+      }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -107,6 +110,8 @@ export default {
     ktInfoCommit () {
       var _this = this
       var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken'),
         kongTiaoData: JSON.stringify(_this.ktData)
       }
       var sign = apply.appSign(param) // 添加签名

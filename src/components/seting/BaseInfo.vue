@@ -80,7 +80,10 @@ export default {
   methods: {
     getBaseInfo () {
       var _this = this
-      var param = {}
+      var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken')
+      }
       var sign = apply.appSign(param) // 添加签名
       param.sign = sign
       axios({
@@ -109,6 +112,8 @@ export default {
         return
       }
       var param = {
+        login_user_name: localStorage.getItem('userName'),
+        lh_zks_token: localStorage.getItem('usertoken'),
         zkbaseInfoData: JSON.stringify(_this.baseinfoList)
       }
       var sign = apply.appSign(param) // 添加签名
