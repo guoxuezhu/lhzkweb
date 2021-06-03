@@ -19,7 +19,7 @@
     <b-modal id="wgmodal" title="用户信息" @ok="addWGCommit" cancel-title="取消" ok-title="确定">
       <b-input-group>
         <b-input-group-prepend is-text><b style="width: 118px;">网关 ID</b></b-input-group-prepend>
-        <b-form-input type="text" v-model.trim="web_wg_id" placeholder="请输入网关ID(1-100)"></b-form-input>
+        <b-form-input type="number" v-model.trim="web_wg_id" placeholder="请输入网关ID(1-100)"></b-form-input>
       </b-input-group>
       <br>
       <b-input-group>
@@ -29,7 +29,7 @@
       <br>
       <b-input-group>
         <b-input-group-prepend is-text><b style="width: 118px;">网关端口</b></b-input-group-prepend>
-        <b-form-input type="text" v-model.trim="web_wg_port" placeholder="请输入网关端口"></b-form-input>
+        <b-form-input type="number" v-model.trim="web_wg_port" placeholder="请输入网关端口"></b-form-input>
       </b-input-group>
       <br>
       <b-input-group>
