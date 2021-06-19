@@ -6,24 +6,20 @@ import Connect from '@/components/Connect'
 
 Vue.use(Router)
 
-const routes = [
-  {
-    path: '/helloWorld',
-    name: 'HelloWorld',
-    component: HelloWorld
-  }, {
-    path: '/',
-    name: 'Login',
-    component: Login
-  }, {
-    path: '/connect',
-    name: 'Connect',
-    component: Connect
-  }
-]
-
-const router = new Router({
-  routes
+export default new Router({
+  routes: [
+    {
+      path: '/helloWorld',
+      name: 'HelloWorld',
+      component: HelloWorld
+    }, {
+      path: '/',
+      name: 'Login',
+      component: Login
+    }, {
+      path: '/connect',
+      name: 'Connect',
+      component: Connect
+    }
+  ]
 })
-
-export default router

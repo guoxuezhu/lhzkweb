@@ -2,7 +2,7 @@
   "name": "lhzkweb",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "guoxuezhu <1174327885@qq.com>",
+  "author": "gxz",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -14,14 +14,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "bootstrap": "^4.3.1",
-    "bootstrap-vue": "^2.0.0-rc.19",
+    "axios": "^0.21.1",
+    "bootstrap-vue": "^2.21.2",
     "js-md5": "^0.7.3",
-    "vue": "^2.6.10",
+    "vue": "^2.5.2",
     "vue-canvas-nest": "^2.0.0",
     "vue-router": "^3.0.1",
-    "vuex": "^3.1.0"
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
