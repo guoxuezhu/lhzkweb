@@ -3,11 +3,11 @@
     <b-button class="btn_tijiao" variant="outline-success" @click="addWgdata()">添 加</b-button>
     <br><br>
     <b-table striped hover :items="wgList" :fields="fields" :current-page="currentPage" :per-page="perPage">
-      <template slot="wg_status" slot-scope="datas">
+      <template v-slot:cell(wg_status)="datas">
         <p v-if="datas.item.wg_status === 1" >启用</p>
         <p v-else class="h_color">禁用</p>
       </template>
-      <template slot="actives" slot-scope="datas">
+      <template v-slot:cell(actives)="datas">
         <b-button size="sm" variant="outline-primary" @click="fixWg(datas.item)" class="mr-1">修改</b-button>
         <b-button size="sm" variant="outline-danger" @click="deletewg(datas.item)" class="mr-1">删除</b-button>
       </template>
