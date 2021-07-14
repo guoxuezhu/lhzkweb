@@ -3,9 +3,9 @@
     <b-button class="btn_tijiao" variant="outline-success" @click="addIcdata()">添 加</b-button>
     <br><br>
     <b-table striped hover :items="icList" :fields="fields" :current-page="currentPage" :per-page="perPage">
-      <template slot="index" slot-scope="datas">{{ datas.index + 1 }}</template>
-      <template slot="card_no" slot-scope="datas">{{ datas.item.card_no.substring(0,5) }}******</template>
-      <template slot="actives" slot-scope="datas">
+      <template v-slot:cell(index)="datas">{{ datas.index + 1 }}</template>
+      <template v-slot:cell(card_no)="datas">{{ datas.item.card_no.substring(0,5) }}******</template>
+      <template v-slot:cell(actives)="datas">
         <b-button size="sm" variant="outline-primary" @click="fixIC(datas.item)" class="mr-1">修改</b-button>
         <b-button size="sm" variant="outline-danger" @click="deleteIC(datas.item)" class="mr-1">删除</b-button>
       </template>

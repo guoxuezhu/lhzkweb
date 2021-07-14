@@ -3,13 +3,13 @@
     <b-button class="btn_tijiao" variant="outline-success" @click="addUseradmin()">添 加</b-button>
     <br><br>
     <b-table striped hover :items="userList" :fields="fields" :current-page="currentPage" :per-page="perPage">
-      <template slot="index" slot-scope="datas">{{ datas.index + 1 }}</template>
-      <template slot="userPaw" slot-scope="datas">******</template>
-      <template slot="user_status" slot-scope="datas">
+      <template v-slot:cell(index)="datas">{{ datas.index + 1 }}</template>
+      <template v-slot:cell(userPaw)="datas">******</template>
+      <template v-slot:cell(user_status)="datas">
         <p v-if="datas.item.user_status === 1" >正常</p>
         <p v-else class="h_color">锁定</p>
       </template>
-      <template slot="actives" slot-scope="datas">
+      <template v-slot:cell(actives)="datas">
         <b-button size="sm" variant="outline-primary" @click="fixUser(datas.item)" class="mr-1">修改</b-button>
         <b-button size="sm" variant="outline-danger" @click="deleteUser(datas.item)" class="mr-1">删除</b-button>
       </template>
